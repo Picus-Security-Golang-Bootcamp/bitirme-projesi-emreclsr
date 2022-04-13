@@ -6,6 +6,7 @@ import (
 	"github.com/emreclsr/picusfinal/category"
 	"github.com/emreclsr/picusfinal/db"
 	"github.com/emreclsr/picusfinal/handlers"
+	"github.com/emreclsr/picusfinal/logger"
 	"github.com/emreclsr/picusfinal/order"
 	"github.com/emreclsr/picusfinal/product"
 	"github.com/emreclsr/picusfinal/repositories"
@@ -13,6 +14,7 @@ import (
 	"github.com/emreclsr/picusfinal/user"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"go.uber.org/zap"
 	"log"
 )
 
@@ -22,13 +24,19 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
+	// Initialize global logger
+	logger.NewLogger()
+	defer logger.Close()
+
 	DB, err := db.Connect()
 	if err != nil {
-		log.Fatal("Error connecting to database: %v", err)
+		zap.L().Fatal("Error connecting to database", zap.Error(err))
+		//log.Fatal("Error connecting to database: %v", err)
 	}
 	err = DB.AutoMigrate(&user.User{}, &category.Category{}, &product.Product{}, &basket.Basket{}, &order.Order{})
 	if err != nil {
-		log.Fatal("Error migrating database: %v", err)
+		zap.L().Fatal("Error auto migrating database", zap.Error(err))
+		//log.Fatal("Error migrating database: %v", err)
 	}
 
 	token := authentication.NewToken()

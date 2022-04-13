@@ -1,6 +1,7 @@
 package user
 
 import (
+	"go.uber.org/zap"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
 )
@@ -20,6 +21,7 @@ type User struct {
 func (u *User) BeforeCreate(tx *gorm.DB) error {
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(u.Password), bcrypt.DefaultCost)
 	if err != nil {
+		zap.L().Error("Error hashing password", zap.Error(err))
 		return err
 	}
 	u.Password = string(hashedPassword)

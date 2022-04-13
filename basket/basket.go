@@ -6,6 +6,7 @@ import (
 	"github.com/emreclsr/picusfinal/product"
 	"github.com/emreclsr/picusfinal/user"
 	"github.com/lib/pq"
+	"go.uber.org/zap"
 	"gorm.io/gorm"
 	"os"
 	"strconv"
@@ -53,6 +54,7 @@ func (b *Basket) ToOrder() *order.Order {
 func (b *Basket) CheckItems() (bool, error) {
 	maxItem, err := strconv.Atoi(os.Getenv("MAX_ITEM_PER_BASKET"))
 	if err != nil {
+		zap.L().Error("Error while converting MAX_ITEM_PER_BASKET to int", zap.Error(err))
 		return false, err
 	}
 	if len(b.ProductIds) > maxItem {
@@ -61,6 +63,7 @@ func (b *Basket) CheckItems() (bool, error) {
 
 	maxAmount, err := strconv.Atoi(os.Getenv("MAX_AMOUNT_OF_ITEM"))
 	if err != nil {
+		zap.L().Error("Error while converting MAX_AMOUNT_OF_ITEM to int", zap.Error(err))
 		return false, err
 	}
 	for _, v := range b.Amount {

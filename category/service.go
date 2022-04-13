@@ -1,5 +1,7 @@
 package category
 
+import "go.uber.org/zap"
+
 type categoryService struct {
 	repo CategoryRepository
 }
@@ -17,16 +19,20 @@ func NewCategoryService(repo CategoryRepository) CategoryService {
 }
 
 func (s *categoryService) Create(category *Category) error {
+	zap.L().Info("Creating category service triggered")
 	err := s.repo.Create(category)
 	if err != nil {
+		zap.L().Error("Error creating category (service)", zap.Error(err))
 		return err
 	}
 	return nil
 }
 
 func (s *categoryService) List() ([]Category, error) {
+	zap.L().Info("Listing category service triggered")
 	categories, err := s.repo.List()
 	if err != nil {
+		zap.L().Error("Error listing category (service)", zap.Error(err))
 		return nil, err
 	}
 	return categories, nil

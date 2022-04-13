@@ -7,7 +7,6 @@ import (
 
 type Category struct {
 	gorm.Model
-	Type     string            `json:"type"`
-	IsDelete bool              `json:"isDelete"`
-	Product  []product.Product `json:"product" gorm:"-"`
+	Type    string            `json:"type"`
+	Product []product.Product `json:"product" gorm:"many2many:category_product;association_foreignkey:ID;foreignkey:ID"`
 }

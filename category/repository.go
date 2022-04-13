@@ -1,8 +1,8 @@
 package category
 
 import (
+	"go.uber.org/zap"
 	"gorm.io/gorm"
-	"gorm.io/gorm/clause"
 )
 
 type CategoryRepository interface {
@@ -22,11 +22,13 @@ func NewCategoryRepository(db *gorm.DB) CategoryRepository {
 }
 
 func (r *repository) Create(category *Category) error {
+	zap.L().Info("Create category (repository)", zap.Reflect("category", category))
 	catType := category.Type
 	rowsAffected := r.db.Where("type = ?", catType).Updates(&category).RowsAffected
 	if rowsAffected == 0 {
 		err := r.db.Create(category).Error
 		if err != nil {
+			zap.L().Error("Create category error (repository)", zap.Error(err))
 			return err
 		}
 	}
@@ -34,10 +36,12 @@ func (r *repository) Create(category *Category) error {
 }
 
 func (r *repository) List() ([]Category, error) {
+	zap.L().Info("List categories (repository)", zap.Reflect("categories", []Category{}))
 	var categories []Category
 	//Find: get all IsDelete false rows
-	err := r.db.Preload(clause.Associations).Find(&categories, "is_delete = false").Error
+	err := r.db.Find(&categories, "deleted_at is null").Error
 	if err != nil {
+		zap.L().Error("List categories error (repository)", zap.Error(err))
 		return nil, err
 	}
 	return categories, nil

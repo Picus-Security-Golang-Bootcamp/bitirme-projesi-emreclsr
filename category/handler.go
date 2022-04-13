@@ -6,6 +6,7 @@ import (
 	"github.com/emreclsr/picusfinal/product"
 	"github.com/gin-gonic/gin"
 	set "github.com/mpvl/unique"
+	"go.uber.org/zap"
 	"net/http"
 	"sort"
 	"strconv"
@@ -26,8 +27,10 @@ func NewCategoryHandler(catServ CategoryService, token authentication.Token, pro
 }
 
 func (h *CategoryHandler) GetAllCategories(c *gin.Context) {
+	zap.L().Info("GetAllCategories handler triggered")
 	categories, err := h.catServ.List()
 	if err != nil {
+		zap.L().Error("Error while getting categories (handler)", zap.Error(err))
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
@@ -35,22 +38,27 @@ func (h *CategoryHandler) GetAllCategories(c *gin.Context) {
 }
 
 func (h *CategoryHandler) CreateCategoryFromCSV(c *gin.Context) {
+	zap.L().Info("CreateCategoryFromCSV handler triggered")
 	claim, err := h.token.VerifyToken(c)
 	if err != nil {
+		zap.L().Error("Error while verifying token in create category from csv", zap.Error(err))
 		c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
 		return
 	}
 	if claim.Role != "admin" {
+		zap.L().Error("Non admin user tried to create category from csv", zap.String("user", claim.Role))
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "You are not authorized to perform this action"})
 		return
 	}
 	csvPartFile, _, openErr := c.Request.FormFile("csv")
 	if openErr != nil {
+		zap.L().Error("Error while opening csv file", zap.Error(openErr))
 		c.JSON(http.StatusBadRequest, gin.H{"error": openErr.Error()})
 		return
 	}
 	csvLines, readErr := csv.NewReader(csvPartFile).ReadAll()
 	if readErr != nil {
+		zap.L().Error("Error while reading csv file", zap.Error(readErr))
 		c.JSON(http.StatusBadRequest, gin.H{"error": readErr.Error()})
 		return
 	}
@@ -76,6 +84,7 @@ func (h *CategoryHandler) CreateCategoryFromCSV(c *gin.Context) {
 			product.Type = each[4]
 
 			if err := h.productServ.Create(&product); err != nil {
+				zap.L().Error("Error while creating product (handler)", zap.Error(err))
 				c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 				return
 			}
@@ -90,6 +99,7 @@ func (h *CategoryHandler) CreateCategoryFromCSV(c *gin.Context) {
 			Type: i,
 		}
 		if err := h.catServ.Create(&category); err != nil {
+			zap.L().Error("Error while creating category (handler)", zap.Error(err))
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}

@@ -1,5 +1,7 @@
 package order
 
+import "go.uber.org/zap"
+
 type orderService struct {
 	repo OrderRepository
 }
@@ -19,6 +21,7 @@ func NewOrderService(repo OrderRepository) OrderService {
 var _ OrderService = &orderService{}
 
 func (s *orderService) Create(order *Order) error {
+	zap.L().Info("Create order service triggered")
 	err := s.repo.Create(order)
 	if err != nil {
 		return err
@@ -27,6 +30,7 @@ func (s *orderService) Create(order *Order) error {
 }
 
 func (s *orderService) Get(id uint) (*Order, error) {
+	zap.L().Info("Get order service triggered")
 	order, err := s.repo.Get(id)
 	if err != nil {
 		return nil, err
@@ -35,6 +39,7 @@ func (s *orderService) Get(id uint) (*Order, error) {
 }
 
 func (s *orderService) List(userID uint) ([]Order, error) {
+	zap.L().Info("List order service triggered")
 	orders, err := s.repo.List(userID)
 	if err != nil {
 		return nil, err
@@ -43,6 +48,7 @@ func (s *orderService) List(userID uint) ([]Order, error) {
 }
 
 func (s *orderService) Update(order *Order) error {
+	zap.L().Info("Update order service triggered")
 	err := s.repo.Update(order)
 	if err != nil {
 		return err
