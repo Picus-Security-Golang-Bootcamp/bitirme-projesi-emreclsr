@@ -23,7 +23,7 @@ func NewUserRepository(db *gorm.DB) UserRepository {
 }
 
 func (r *repository) Create(user *User) error {
-	zap.L().Info("Creating user")
+	zap.L().Debug("Creating user triggered")
 	err := r.db.Create(&user).Error
 	if err != nil {
 		zap.L().Error("Error creating user", zap.Error(err))
@@ -33,7 +33,7 @@ func (r *repository) Create(user *User) error {
 }
 
 func (r *repository) GetByEmail(email string) (*User, error) {
-	zap.L().Info("Getting user by email", zap.String("email", email))
+	zap.L().Debug("Getting user by email")
 	var user User
 	err := r.db.Where("email = ?", email).First(&user).Error
 	if err != nil {
@@ -43,11 +43,11 @@ func (r *repository) GetByEmail(email string) (*User, error) {
 }
 
 func (r *repository) GetByID(id uint) (*User, error) {
-	zap.L().Info("Getting user by id", zap.Uint("id", id))
+	zap.L().Debug("Getting user by id")
 	var user User
 	err := r.db.Where("id = ?", id).First(&user).Error
 	if err != nil {
-		zap.L().Error("Error getting user by id", zap.Error(err))
+		zap.L().Error("Error getting user by id")
 		return nil, err
 	}
 	return &user, nil

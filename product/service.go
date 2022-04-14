@@ -1,6 +1,11 @@
 package product
 
-import "go.uber.org/zap"
+import (
+	"fmt"
+	"github.com/emreclsr/picusfinal/pagination"
+	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
+)
 
 type productService struct {
 	repo ProductRepository
@@ -11,7 +16,8 @@ type ProductService interface {
 	Search(word string) ([]Product, error)
 	Delete(id uint) error
 	Update(product *Product) error
-	List() ([]Product, error)
+	//List() ([]Product, error)
+	List(c *gin.Context, pg *pagination.Pagination) Response
 	Get(id uint) (*Product, error)
 }
 
@@ -62,14 +68,53 @@ func (s *productService) Update(product *Product) error {
 	return nil
 }
 
-func (s *productService) List() ([]Product, error) {
-	zap.L().Info("List product service triggered")
-	products, err := s.repo.List()
-	if err != nil {
-		zap.L().Error("Error listing product (service)", zap.Error(err))
-		return nil, err
+//func (s *productService) List() ([]Product, error) {
+//	zap.L().Info("List product service triggered")
+//	products, err := s.repo.List()
+//	if err != nil {
+//		zap.L().Error("Error listing product (service)", zap.Error(err))
+//		return nil, err
+//	}
+//	return products, nil
+//}
+
+type Response struct {
+	Success bool        `json:"success"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
+}
+
+func (s *productService) List(c *gin.Context, pg *pagination.Pagination) Response {
+	operationResult, _, totalPages := s.repo.List(pg)
+
+	if operationResult.Error != nil {
+		return Response{Success: false, Message: operationResult.Error.Error(), Data: nil}
 	}
-	return products, nil
+
+	var data = operationResult.Result.(*pagination.Pagination)
+
+	//get current url path
+	urlPath := c.Request.URL.Path
+
+	//set first & last page pagination response
+	data.FirstPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", urlPath, pg.Limit, 0, pg.Sort)
+	data.LastPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", urlPath, pg.Limit, totalPages, pg.Sort)
+
+	if data.Page > 0 {
+		//set previous page pagination response
+		data.PreviousPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", urlPath, pg.Limit, data.Page-1, pg.Sort)
+	}
+	if data.Page < totalPages {
+		//set next page pagination response
+		data.NextPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", urlPath, pg.Limit, data.Page+1, pg.Sort)
+	}
+
+	if data.Page > totalPages {
+		//reset previous page pagination response
+		data.PreviousPage = ""
+	}
+	return Response{Success: true, Message: "", Data: data}
+
 }
 
 func (s *productService) Get(id uint) (*Product, error) {

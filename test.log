@@ -1,0 +1,773 @@
+1.6499256961751883e+09	info	authentication/signuphandler.go:21	SignUp triggered
+1.6499256961761882e+09	info	user/service.go:33	Get user by email triggered	{"email": "emre@xxx.com"}
+1.649925696196189e+09	info	user/service.go:23	Create user triggered	{"email": "emre@xxx.com"}
+1.649925698991982e+09	info	authentication/loginhandler.go:22	Login triggered
+1.6499256989929166e+09	info	user/service.go:33	Get user by email triggered	{"email": "emre@xxx.com"}
+1.649925700645328e+09	info	category/handler.go:41	CreateCategoryFromCSV handler triggered
+1.6499257006459553e+09	info	product/service.go:26	Create product service triggered
+1.6499257006459553e+09	info	product/repository.go:29	Create product
+1.6499257006567407e+09	info	product/service.go:26	Create product service triggered
+1.649925700658027e+09	info	product/repository.go:29	Create product
+1.6499257006585402e+09	info	product/service.go:26	Create product service triggered
+1.6499257006585402e+09	info	product/repository.go:29	Create product
+1.6499257006590629e+09	info	product/service.go:26	Create product service triggered
+1.6499257006590629e+09	info	product/repository.go:29	Create product
+1.6499257006596456e+09	info	product/service.go:26	Create product service triggered
+1.6499257006596456e+09	info	product/repository.go:29	Create product
+1.6499257006597126e+09	info	product/service.go:26	Create product service triggered
+1.6499257006597126e+09	info	product/repository.go:29	Create product
+1.64992570066022e+09	info	product/service.go:26	Create product service triggered
+1.64992570066022e+09	info	product/repository.go:29	Create product
+1.64992570066094e+09	info	product/service.go:26	Create product service triggered
+1.64992570066094e+09	info	product/repository.go:29	Create product
+1.649925700661446e+09	info	product/service.go:26	Create product service triggered
+1.649925700661446e+09	info	product/repository.go:29	Create product
+1.6499257006622307e+09	info	product/service.go:26	Create product service triggered
+1.6499257006622307e+09	info	product/repository.go:29	Create product
+1.6499257006622307e+09	info	product/service.go:26	Create product service triggered
+1.6499257006627736e+09	info	product/repository.go:29	Create product
+1.6499257006627736e+09	info	product/service.go:26	Create product service triggered
+1.6499257006627736e+09	info	product/repository.go:29	Create product
+1.649925700663303e+09	info	product/service.go:26	Create product service triggered
+1.649925700663303e+09	info	product/repository.go:29	Create product
+1.649925700663925e+09	info	product/service.go:26	Create product service triggered
+1.649925700663925e+09	info	product/repository.go:29	Create product
+1.6499257006645308e+09	info	product/service.go:26	Create product service triggered
+1.6499257006645308e+09	info	product/repository.go:29	Create product
+1.6499257006650379e+09	info	product/service.go:26	Create product service triggered
+1.6499257006650379e+09	info	product/repository.go:29	Create product
+1.6499257006652715e+09	info	product/service.go:26	Create product service triggered
+1.6499257006652715e+09	info	product/repository.go:29	Create product
+1.6499257006658506e+09	info	product/service.go:26	Create product service triggered
+1.6499257006658506e+09	info	product/repository.go:29	Create product
+1.6499257006663585e+09	info	product/service.go:26	Create product service triggered
+1.6499257006663585e+09	info	product/repository.go:29	Create product
+1.649925700666673e+09	info	product/service.go:26	Create product service triggered
+1.649925700666673e+09	info	product/repository.go:29	Create product
+1.6499257006673653e+09	info	product/service.go:26	Create product service triggered
+1.6499257006673653e+09	info	product/repository.go:29	Create product
+1.6499257006678736e+09	info	product/service.go:26	Create product service triggered
+1.6499257006678736e+09	info	product/repository.go:29	Create product
+1.6499257006683989e+09	info	product/service.go:26	Create product service triggered
+1.6499257006683989e+09	info	product/repository.go:29	Create product
+1.6499257006689315e+09	info	product/service.go:26	Create product service triggered
+1.6499257006689315e+09	info	product/repository.go:29	Create product
+1.649925700669742e+09	info	product/service.go:26	Create product service triggered
+1.649925700669742e+09	info	product/repository.go:29	Create product
+1.6499257006698577e+09	info	product/service.go:26	Create product service triggered
+1.6499257006698577e+09	info	product/repository.go:29	Create product
+1.6499257006703668e+09	info	product/service.go:26	Create product service triggered
+1.6499257006703668e+09	info	product/repository.go:29	Create product
+1.6499257006708906e+09	info	product/service.go:26	Create product service triggered
+1.6499257006708906e+09	info	product/repository.go:29	Create product
+1.6499257006714337e+09	info	product/service.go:26	Create product service triggered
+1.6499257006714337e+09	info	product/repository.go:29	Create product
+1.6499257006719658e+09	info	product/service.go:26	Create product service triggered
+1.6499257006719658e+09	info	product/repository.go:29	Create product
+1.649925700672501e+09	info	product/service.go:26	Create product service triggered
+1.649925700672501e+09	info	product/repository.go:29	Create product
+1.6499257006727908e+09	info	product/service.go:26	Create product service triggered
+1.6499257006727908e+09	info	product/repository.go:29	Create product
+1.6499257006733e+09	info	product/service.go:26	Create product service triggered
+1.6499257006733e+09	info	product/repository.go:29	Create product
+1.649925700673836e+09	info	product/service.go:26	Create product service triggered
+1.649925700673836e+09	info	product/repository.go:29	Create product
+1.6499257006744466e+09	info	product/service.go:26	Create product service triggered
+1.6499257006744466e+09	info	product/repository.go:29	Create product
+1.6499257006749523e+09	info	product/service.go:26	Create product service triggered
+1.6499257006749523e+09	info	product/repository.go:29	Create product
+1.649925700675227e+09	info	product/service.go:26	Create product service triggered
+1.649925700675227e+09	info	product/repository.go:29	Create product
+1.6499257006757352e+09	info	product/service.go:26	Create product service triggered
+1.6499257006757352e+09	info	product/repository.go:29	Create product
+1.64992570067627e+09	info	product/service.go:26	Create product service triggered
+1.64992570067627e+09	info	product/repository.go:29	Create product
+1.6499257006769295e+09	info	product/service.go:26	Create product service triggered
+1.6499257006769295e+09	info	product/repository.go:29	Create product
+1.6499257006774378e+09	info	product/service.go:26	Create product service triggered
+1.6499257006774378e+09	info	product/repository.go:29	Create product
+1.6499257006779702e+09	info	product/service.go:26	Create product service triggered
+1.6499257006779702e+09	info	product/repository.go:29	Create product
+1.6499257006785731e+09	info	product/service.go:26	Create product service triggered
+1.6499257006785731e+09	info	product/repository.go:29	Create product
+1.6499257006790805e+09	info	product/service.go:26	Create product service triggered
+1.6499257006790805e+09	info	product/repository.go:29	Create product
+1.649925700679332e+09	info	product/service.go:26	Create product service triggered
+1.649925700679332e+09	info	product/repository.go:29	Create product
+1.6499257006799307e+09	info	product/service.go:26	Create product service triggered
+1.6499257006799307e+09	info	product/repository.go:29	Create product
+1.6499257006804361e+09	info	product/service.go:26	Create product service triggered
+1.6499257006804361e+09	info	product/repository.go:29	Create product
+1.6499257006809547e+09	info	product/service.go:26	Create product service triggered
+1.6499257006809547e+09	info	product/repository.go:29	Create product
+1.6499257006811776e+09	info	product/service.go:26	Create product service triggered
+1.6499257006811776e+09	info	product/repository.go:29	Create product
+1.6499257006817791e+09	info	product/service.go:26	Create product service triggered
+1.6499257006817791e+09	info	product/repository.go:29	Create product
+1.6499257006822891e+09	info	product/service.go:26	Create product service triggered
+1.6499257006822891e+09	info	product/repository.go:29	Create product
+1.6499257006830356e+09	info	product/service.go:26	Create product service triggered
+1.6499257006830356e+09	info	product/repository.go:29	Create product
+1.6499257006831813e+09	info	product/service.go:26	Create product service triggered
+1.6499257006831813e+09	info	product/repository.go:29	Create product
+1.6499257006837838e+09	info	product/service.go:26	Create product service triggered
+1.6499257006837838e+09	info	product/repository.go:29	Create product
+1.6499257006843648e+09	info	product/service.go:26	Create product service triggered
+1.6499257006843648e+09	info	product/repository.go:29	Create product
+1.6499257006848736e+09	info	product/service.go:26	Create product service triggered
+1.6499257006848736e+09	info	product/repository.go:29	Create product
+1.6499257006851013e+09	info	product/service.go:26	Create product service triggered
+1.6499257006851013e+09	info	product/repository.go:29	Create product
+1.6499257006856768e+09	info	product/service.go:26	Create product service triggered
+1.6499257006856768e+09	info	product/repository.go:29	Create product
+1.6499257006861873e+09	info	product/service.go:26	Create product service triggered
+1.6499257006861873e+09	info	product/repository.go:29	Create product
+1.6499257006863542e+09	info	product/service.go:26	Create product service triggered
+1.6499257006863542e+09	info	product/repository.go:29	Create product
+1.649925700686932e+09	info	product/service.go:26	Create product service triggered
+1.649925700686932e+09	info	product/repository.go:29	Create product
+1.6499257006874425e+09	info	product/service.go:26	Create product service triggered
+1.6499257006874425e+09	info	product/repository.go:29	Create product
+1.649925700687662e+09	info	product/service.go:26	Create product service triggered
+1.649925700687662e+09	info	product/repository.go:29	Create product
+1.6499257006881688e+09	info	product/service.go:26	Create product service triggered
+1.6499257006881688e+09	info	product/repository.go:29	Create product
+1.6499257006888356e+09	info	product/service.go:26	Create product service triggered
+1.6499257006888356e+09	info	product/repository.go:29	Create product
+1.6499257006893473e+09	info	product/service.go:26	Create product service triggered
+1.6499257006896508e+09	info	product/repository.go:29	Create product
+1.6499257006896508e+09	info	product/service.go:26	Create product service triggered
+1.6499257006896508e+09	info	product/repository.go:29	Create product
+1.6499257006901643e+09	info	product/service.go:26	Create product service triggered
+1.6499257006901643e+09	info	product/repository.go:29	Create product
+1.6499257006907063e+09	info	product/service.go:26	Create product service triggered
+1.6499257006907063e+09	info	product/repository.go:29	Create product
+1.6499257006912296e+09	info	product/service.go:26	Create product service triggered
+1.6499257006912296e+09	info	product/repository.go:29	Create product
+1.6499257006922953e+09	info	product/service.go:26	Create product service triggered
+1.6499257006922953e+09	info	product/repository.go:29	Create product
+1.6499257006928964e+09	info	product/service.go:26	Create product service triggered
+1.6499257006928964e+09	info	product/repository.go:29	Create product
+1.6499257006930053e+09	info	product/service.go:26	Create product service triggered
+1.6499257006935115e+09	info	product/repository.go:29	Create product
+1.6499257006935115e+09	info	product/service.go:26	Create product service triggered
+1.6499257006935115e+09	info	product/repository.go:29	Create product
+1.6499257006941037e+09	info	product/service.go:26	Create product service triggered
+1.6499257006941037e+09	info	product/repository.go:29	Create product
+1.6499257006946716e+09	info	product/service.go:26	Create product service triggered
+1.6499257006946716e+09	info	product/repository.go:29	Create product
+1.6499257006951766e+09	info	product/service.go:26	Create product service triggered
+1.6499257006951766e+09	info	product/repository.go:29	Create product
+1.6499257006954036e+09	info	product/service.go:26	Create product service triggered
+1.6499257006954036e+09	info	product/repository.go:29	Create product
+1.64992570069591e+09	info	product/service.go:26	Create product service triggered
+1.64992570069591e+09	info	product/repository.go:29	Create product
+1.649925700696575e+09	info	product/service.go:26	Create product service triggered
+1.649925700696575e+09	info	product/repository.go:29	Create product
+1.6499257006970851e+09	info	product/service.go:26	Create product service triggered
+1.6499257006970851e+09	info	product/repository.go:29	Create product
+1.6499257006973734e+09	info	product/service.go:26	Create product service triggered
+1.6499257006979737e+09	info	product/repository.go:29	Create product
+1.6499257006984792e+09	info	product/service.go:26	Create product service triggered
+1.6499257006984792e+09	info	product/repository.go:29	Create product
+1.6499257006984792e+09	info	product/service.go:26	Create product service triggered
+1.6499257006984792e+09	info	product/repository.go:29	Create product
+1.6499257006991029e+09	info	product/service.go:26	Create product service triggered
+1.6499257006991029e+09	info	product/repository.go:29	Create product
+1.6499257006997151e+09	info	product/service.go:26	Create product service triggered
+1.6499257006997151e+09	info	product/repository.go:29	Create product
+1.649925700700296e+09	info	product/service.go:26	Create product service triggered
+1.649925700700296e+09	info	product/repository.go:29	Create product
+1.649925700700802e+09	info	product/service.go:26	Create product service triggered
+1.649925700700802e+09	info	product/repository.go:29	Create product
+1.6499257007015138e+09	info	product/service.go:26	Create product service triggered
+1.6499257007015138e+09	info	product/repository.go:29	Create product
+1.649925700701594e+09	info	product/service.go:26	Create product service triggered
+1.649925700701594e+09	info	product/repository.go:29	Create product
+1.6499257007021e+09	info	product/service.go:26	Create product service triggered
+1.6499257007021e+09	info	product/repository.go:29	Create product
+1.6499257007026289e+09	info	product/service.go:26	Create product service triggered
+1.6499257007026289e+09	info	product/repository.go:29	Create product
+1.6499257007031553e+09	info	product/service.go:26	Create product service triggered
+1.6499257007031553e+09	info	product/repository.go:29	Create product
+1.6499257007041304e+09	info	product/service.go:26	Create product service triggered
+1.6499257007041304e+09	info	product/repository.go:29	Create product
+1.6499257007046435e+09	info	product/service.go:26	Create product service triggered
+1.6499257007046435e+09	info	product/repository.go:29	Create product
+1.6499257007049263e+09	info	product/service.go:26	Create product service triggered
+1.6499257007049263e+09	info	product/repository.go:29	Create product
+1.649925700705514e+09	info	product/service.go:26	Create product service triggered
+1.649925700705514e+09	info	product/repository.go:29	Create product
+1.649925700706021e+09	info	product/service.go:26	Create product service triggered
+1.649925700706021e+09	info	product/repository.go:29	Create product
+1.6499257007065744e+09	info	product/service.go:26	Create product service triggered
+1.6499257007065744e+09	info	product/repository.go:29	Create product
+1.6499257007070997e+09	info	product/service.go:26	Create product service triggered
+1.6499257007070997e+09	info	product/repository.go:29	Create product
+1.6499257007074149e+09	info	product/service.go:26	Create product service triggered
+1.6499257007074149e+09	info	product/repository.go:29	Create product
+1.6499257007079206e+09	info	product/service.go:26	Create product service triggered
+1.6499257007079206e+09	info	product/repository.go:29	Create product
+1.6499257007085927e+09	info	product/service.go:26	Create product service triggered
+1.6499257007085927e+09	info	product/repository.go:29	Create product
+1.6499257007091022e+09	info	product/service.go:26	Create product service triggered
+1.6499257007091022e+09	info	product/repository.go:29	Create product
+1.6499257007093947e+09	info	product/service.go:26	Create product service triggered
+1.6499257007093947e+09	info	product/repository.go:29	Create product
+1.6499257007099917e+09	info	product/service.go:26	Create product service triggered
+1.6499257007099917e+09	info	product/repository.go:29	Create product
+1.6499257007105007e+09	info	category/service.go:22	Creating category service triggered
+1.6499257007105007e+09	info	category/repository.go:25	Create category (repository)	{"category": {"ID":0,"CreatedAt":"0001-01-01T00:00:00Z","UpdatedAt":"0001-01-01T00:00:00Z","DeletedAt":null,"type":"book","product":null}}
+1.6499257007130733e+09	info	category/service.go:22	Creating category service triggered
+1.6499257007130733e+09	info	category/repository.go:25	Create category (repository)	{"category": {"ID":0,"CreatedAt":"0001-01-01T00:00:00Z","UpdatedAt":"0001-01-01T00:00:00Z","DeletedAt":null,"type":"electronic","product":null}}
+1.6499257007142034e+09	info	category/service.go:22	Creating category service triggered
+1.6499257007142034e+09	info	category/repository.go:25	Create category (repository)	{"category": {"ID":0,"CreatedAt":"0001-01-01T00:00:00Z","UpdatedAt":"0001-01-01T00:00:00Z","DeletedAt":null,"type":"fashion","product":null}}
+1.6499257007147944e+09	info	category/service.go:22	Creating category service triggered
+1.6499257007147944e+09	info	category/repository.go:25	Create category (repository)	{"category": {"ID":0,"CreatedAt":"0001-01-01T00:00:00Z","UpdatedAt":"0001-01-01T00:00:00Z","DeletedAt":null,"type":"furniture","product":null}}
+1.6499257017546253e+09	info	category/handler.go:30	GetAllCategories handler triggered
+1.6499257017546954e+09	info	category/service.go:32	Listing category service triggered
+1.6499257017546954e+09	info	category/repository.go:39	List categories (repository)
+1.6499257031657043e+09	info	basket/handler.go:32	Update basket handler triggered
+1.6499257031658397e+09	info	basket/service.go:34	Get basket service triggered
+1.6499257031658397e+09	info	basket/repository.go:38	Get basket by user id (repository)
+1.649925703167293e+09	info	basket/service.go:24	Create basket service triggered
+1.649925703167293e+09	info	basket/repository.go:27	Create basket (repository)
+1.6499257031773362e+09	info	product/service.go:76	Get product service triggered
+1.6499257031773362e+09	info	product/repository.go:81	Getting product	{"id": 3}
+1.6499257031783416e+09	info	product/service.go:76	Get product service triggered
+1.6499257031783416e+09	info	product/repository.go:81	Getting product	{"id": 4}
+1.6499257031783416e+09	info	basket/service.go:29	Update basket service triggered
+1.6499257031783416e+09	info	basket/repository.go:33	Update basket (repository)
+1.6499257046883938e+09	info	basket/handler.go:90	Get basket handler triggered
+1.649925704689264e+09	info	basket/service.go:34	Get basket service triggered
+1.649925704689264e+09	info	basket/repository.go:38	Get basket by user id (repository)
+1.6499257046899328e+09	info	product/service.go:76	Get product service triggered
+1.6499257046899328e+09	info	product/repository.go:81	Getting product	{"id": 3}
+1.6499257046899328e+09	info	product/service.go:76	Get product service triggered
+1.6499257046899328e+09	info	product/repository.go:81	Getting product	{"id": 4}
+1.6499257060907557e+09	info	basket/handler.go:130	Create order handler triggered
+1.6499257060907557e+09	info	basket/service.go:34	Get basket service triggered
+1.6499257060907557e+09	info	basket/repository.go:38	Get basket by user id (repository)
+1.6499257060907557e+09	info	product/service.go:76	Get product service triggered
+1.6499257060907557e+09	info	product/repository.go:81	Getting product	{"id": 3}
+1.6499257060907557e+09	info	product/service.go:56	Update product service triggered
+1.6499257060907557e+09	info	product/repository.go:60	Updating product	{"product": {"ID":3,"CreatedAt":"2022-04-14T11:41:40.645955+03:00","UpdatedAt":"2022-04-14T11:41:40.645955+03:00","DeletedAt":null,"name":"keyboard3","price":359,"stock":17,"type":"electronic"}}
+1.6499257060918436e+09	info	product/service.go:76	Get product service triggered
+1.6499257060918436e+09	info	product/repository.go:81	Getting product	{"id": 4}
+1.6499257060923526e+09	info	product/service.go:56	Update product service triggered
+1.6499257060923526e+09	info	product/repository.go:60	Updating product	{"product": {"ID":4,"CreatedAt":"2022-04-14T11:41:40.645955+03:00","UpdatedAt":"2022-04-14T11:41:40.645955+03:00","DeletedAt":null,"name":"keyboard4","price":589,"stock":31,"type":"electronic"}}
+1.6499257060929532e+09	info	order/service.go:24	Create order service triggered
+1.6499257060929532e+09	info	order/repository.go:28	Creating order
+1.6499257061512146e+09	info	basket/service.go:29	Update basket service triggered
+1.6499257061512146e+09	info	basket/repository.go:33	Update basket (repository)
+1.649925707228968e+09	info	order/handler.go:21	GetOrders handler triggered
+1.649925707229745e+09	info	order/service.go:42	List order service triggered
+1.649925707229745e+09	info	order/repository.go:47	Listing orders	{"userID": 1}
+1.6499257084236574e+09	info	order/handler.go:39	CancelOrder handler triggered
+1.6499257084243827e+09	info	order/service.go:33	Get order service triggered
+1.6499257084243827e+09	info	order/repository.go:37	Getting order	{"id": 1}
+1.6499257084248888e+09	info	order/service.go:51	Update order service triggered
+1.6499257084248888e+09	info	order/repository.go:57	Updating order	{"order": {"ID":1,"CreatedAt":"2022-04-14T11:41:46.147215+03:00","UpdatedAt":"2022-04-14T11:41:46.147215+03:00","DeletedAt":null,"user_id":1,"user":{"ID":1,"CreatedAt":"2022-04-14T11:41:36.250206+03:00","UpdatedAt":"2022-04-14T11:41:36.250206+03:00","DeletedAt":null,"full_name":"Emre","email":"emre@xxx.com","password":"$2a$10$H38JTc3qsmNTBqoN2gxYfuUhcfVQMhm.ZVzCQnYN4u9OnpMEU/pfu","phone":"05341234567","address":"ev adresi","role":"admin","status":"active"},"total_price":4740,"is_canceled":true,"amount":[5,5],"line_total":[1795,2945],"product_ids":[3,4],"products":[{"ID":4,"CreatedAt":"2022-04-14T11:41:40.645955+03:00","UpdatedAt":"2022-04-14T11:41:46.092445+03:00","DeletedAt":null,"name":"keyboard4","price":589,"stock":31,"type":"electronic"},{"ID":3,"CreatedAt":"2022-04-14T11:41:40.645955+03:00","UpdatedAt":"2022-04-14T11:41:46.090755+03:00","DeletedAt":null,"name":"keyboard3","price":359,"stock":17,"type":"electronic"}]}}
+1.649925709524572e+09	info	product/handler.go:24	CreateProduct handler triggered
+1.6499257095254993e+09	info	product/service.go:26	Create product service triggered
+1.6499257095254993e+09	info	product/repository.go:29	Create product
+1.649925711250273e+09	info	product/handler.go:51	GetProducts handler triggered
+1.6499257112509909e+09	info	product/service.go:66	List product service triggered
+1.6499257112509909e+09	info	product/repository.go:70	Listing products
+1.649925712659442e+09	info	product/handler.go:68	Search product handler triggered
+1.649925712659442e+09	info	product/service.go:36	Search product service triggered
+1.6499257126598394e+09	info	product/repository.go:39	Searching for products	{"word": "magazine"}
+1.649925713734926e+09	info	product/handler.go:80	DeleteProduct handler triggered
+1.649925713735764e+09	info	product/service.go:46	Delete product service triggered
+1.649925713735764e+09	info	product/repository.go:50	Deleting product	{"id": 85}
+1.649925715280926e+09	info	product/handler.go:107	UpdateProduct handler triggered
+1.6499257152811575e+09	info	product/service.go:56	Update product service triggered
+1.6499257152811575e+09	info	product/repository.go:60	Updating product	{"product": {"ID":200,"CreatedAt":"2022-04-12T16:23:35.576452+03:00","UpdatedAt":"2022-04-12T16:23:35.576452+03:00","DeletedAt":null,"name":"aaaaaa","price":2000,"stock":0,"type":"book"}}
+1.6499257174189098e+09	info	authentication/signuphandler.go:21	SignUp triggered
+1.6499257174195232e+09	info	user/service.go:33	Get user by email triggered	{"email": "emre@xxx.com"}
+1.6499257174195232e+09	error	authentication/signuphandler.go:32	Error while getting email in sing up
+1.6499295433416104e+09	info	authentication/signuphandler.go:21	SignUp triggered
+1.6499325660328262e+09	info	authentication/loginhandler.go:22	Login triggered
+1.6499325660338306e+09	info	user/service.go:33	Get user by email triggered	{"email": "emre@xxx.com"}
+1.6499325660558522e+09	error	authentication/loginhandler.go:31	Error getting user while logging in
+1.6499325687311587e+09	info	authentication/signuphandler.go:21	SignUp triggered
+1.649932568731915e+09	info	user/service.go:33	Get user by email triggered	{"email": "emre@xxx.com"}
+1.6499325687324224e+09	info	user/service.go:23	Create user triggered	{"email": "emre@xxx.com"}
+1.6499325716652398e+09	info	authentication/loginhandler.go:22	Login triggered
+1.6499325716653025e+09	info	user/service.go:33	Get user by email triggered	{"email": "emre@xxx.com"}
+1.649932574986669e+09	info	category/handler.go:41	CreateCategoryFromCSV handler triggered
+1.649932574986669e+09	info	product/service.go:32	Create product service triggered
+1.649932574986669e+09	info	product/repository.go:32	Create product
+1.6499325749896e+09	info	product/service.go:32	Create product service triggered
+1.6499325749896e+09	info	product/repository.go:32	Create product
+1.6499325749901092e+09	info	product/service.go:32	Create product service triggered
+1.6499325749901092e+09	info	product/repository.go:32	Create product
+1.64993257499094e+09	info	product/service.go:32	Create product service triggered
+1.64993257499094e+09	info	product/repository.go:32	Create product
+1.649932574991024e+09	info	product/service.go:32	Create product service triggered
+1.649932574991024e+09	info	product/repository.go:32	Create product
+1.6499325749915779e+09	info	product/service.go:32	Create product service triggered
+1.6499325749915779e+09	info	product/repository.go:32	Create product
+1.649932574992134e+09	info	product/service.go:32	Create product service triggered
+1.6499325749926734e+09	info	product/repository.go:32	Create product
+1.6499325749932096e+09	info	product/service.go:32	Create product service triggered
+1.6499325749933112e+09	info	product/repository.go:32	Create product
+1.6499325749938228e+09	info	product/service.go:32	Create product service triggered
+1.6499325749938228e+09	info	product/repository.go:32	Create product
+1.6499325749946444e+09	info	product/service.go:32	Create product service triggered
+1.6499325749946444e+09	info	product/repository.go:32	Create product
+1.6499325749946444e+09	info	product/service.go:32	Create product service triggered
+1.6499325749951816e+09	info	product/repository.go:32	Create product
+1.6499325749951816e+09	info	product/service.go:32	Create product service triggered
+1.6499325749951816e+09	info	product/repository.go:32	Create product
+1.6499325749957116e+09	info	product/service.go:32	Create product service triggered
+1.6499325749957116e+09	info	product/repository.go:32	Create product
+1.6499325749962518e+09	info	product/service.go:32	Create product service triggered
+1.6499325749962518e+09	info	product/repository.go:32	Create product
+1.6499325749962518e+09	info	product/service.go:32	Create product service triggered
+1.6499325749962518e+09	info	product/repository.go:32	Create product
+1.6499325749962518e+09	info	product/service.go:32	Create product service triggered
+1.6499325749962518e+09	info	product/repository.go:32	Create product
+1.649932574997602e+09	info	product/service.go:32	Create product service triggered
+1.649932574997602e+09	info	product/repository.go:32	Create product
+1.649932574998135e+09	info	product/service.go:32	Create product service triggered
+1.649932574998135e+09	info	product/repository.go:32	Create product
+1.649932574998369e+09	info	product/service.go:32	Create product service triggered
+1.649932574998369e+09	info	product/repository.go:32	Create product
+1.6499325749988747e+09	info	product/service.go:32	Create product service triggered
+1.6499325749988747e+09	info	product/repository.go:32	Create product
+1.6499325749993916e+09	info	product/service.go:32	Create product service triggered
+1.6499325749993916e+09	info	product/repository.go:32	Create product
+1.6499325750002346e+09	info	product/service.go:32	Create product service triggered
+1.6499325750002346e+09	info	product/repository.go:32	Create product
+1.6499325750003693e+09	info	product/service.go:32	Create product service triggered
+1.6499325750008786e+09	info	product/repository.go:32	Create product
+1.6499325750008786e+09	info	product/service.go:32	Create product service triggered
+1.6499325750008786e+09	info	product/repository.go:32	Create product
+1.6499325750014725e+09	info	product/service.go:32	Create product service triggered
+1.6499325750014725e+09	info	product/repository.go:32	Create product
+1.6499325750019777e+09	info	product/service.go:32	Create product service triggered
+1.6499325750019777e+09	info	product/repository.go:32	Create product
+1.6499325750025225e+09	info	product/service.go:32	Create product service triggered
+1.6499325750025225e+09	info	product/repository.go:32	Create product
+1.6499325750027528e+09	info	product/service.go:32	Create product service triggered
+1.6499325750027528e+09	info	product/repository.go:32	Create product
+1.649932575003327e+09	info	product/service.go:32	Create product service triggered
+1.649932575003327e+09	info	product/repository.go:32	Create product
+1.6499325750038338e+09	info	product/service.go:32	Create product service triggered
+1.6499325750038338e+09	info	product/repository.go:32	Create product
+1.6499325750040233e+09	info	product/service.go:32	Create product service triggered
+1.6499325750040233e+09	info	product/repository.go:32	Create product
+1.649932575004591e+09	info	product/service.go:32	Create product service triggered
+1.649932575004591e+09	info	product/repository.go:32	Create product
+1.6499325750050983e+09	info	product/service.go:32	Create product service triggered
+1.6499325750050983e+09	info	product/repository.go:32	Create product
+1.6499325750052812e+09	info	product/service.go:32	Create product service triggered
+1.6499325750052812e+09	info	product/repository.go:32	Create product
+1.6499325750058594e+09	info	product/service.go:32	Create product service triggered
+1.6499325750058594e+09	info	product/repository.go:32	Create product
+1.6499325750065162e+09	info	product/service.go:32	Create product service triggered
+1.6499325750067117e+09	info	product/repository.go:32	Create product
+1.649932575007222e+09	info	product/service.go:32	Create product service triggered
+1.649932575007222e+09	info	product/repository.go:32	Create product
+1.6499325750077534e+09	info	product/service.go:32	Create product service triggered
+1.6499325750077534e+09	info	product/repository.go:32	Create product
+1.649932575008079e+09	info	product/service.go:32	Create product service triggered
+1.649932575008079e+09	info	product/repository.go:32	Create product
+1.649932575008588e+09	info	product/service.go:32	Create product service triggered
+1.649932575008588e+09	info	product/repository.go:32	Create product
+1.6499325750091176e+09	info	product/service.go:32	Create product service triggered
+1.6499325750091176e+09	info	product/repository.go:32	Create product
+1.6499325750096543e+09	info	product/service.go:32	Create product service triggered
+1.6499325750096543e+09	info	product/repository.go:32	Create product
+1.649932575009894e+09	info	product/service.go:32	Create product service triggered
+1.649932575009894e+09	info	product/repository.go:32	Create product
+1.6499325750104713e+09	info	product/service.go:32	Create product service triggered
+1.6499325750104713e+09	info	product/repository.go:32	Create product
+1.64993257501098e+09	info	product/service.go:32	Create product service triggered
+1.64993257501098e+09	info	product/repository.go:32	Create product
+1.6499325750112066e+09	info	product/service.go:32	Create product service triggered
+1.6499325750112066e+09	info	product/repository.go:32	Create product
+1.649932575011776e+09	info	product/service.go:32	Create product service triggered
+1.649932575011776e+09	info	product/repository.go:32	Create product
+1.6499325750122826e+09	info	product/service.go:32	Create product service triggered
+1.6499325750122826e+09	info	product/repository.go:32	Create product
+1.6499325750124495e+09	info	product/service.go:32	Create product service triggered
+1.6499325750124495e+09	info	product/repository.go:32	Create product
+1.6499325750129545e+09	info	product/service.go:32	Create product service triggered
+1.6499325750129545e+09	info	product/repository.go:32	Create product
+1.6499325750134811e+09	info	product/service.go:32	Create product service triggered
+1.6499325750134811e+09	info	product/repository.go:32	Create product
+1.6499325750138485e+09	info	product/service.go:32	Create product service triggered
+1.6499325750143554e+09	info	product/repository.go:32	Create product
+1.6499325750145688e+09	info	product/service.go:32	Create product service triggered
+1.6499325750145688e+09	info	product/repository.go:32	Create product
+1.649932575015075e+09	info	product/service.go:32	Create product service triggered
+1.649932575015075e+09	info	product/repository.go:32	Create product
+1.6499325750153334e+09	info	product/service.go:32	Create product service triggered
+1.6499325750153334e+09	info	product/repository.go:32	Create product
+1.6499325750158381e+09	info	product/service.go:32	Create product service triggered
+1.6499325750158381e+09	info	product/repository.go:32	Create product
+1.6499325750163636e+09	info	product/service.go:32	Create product service triggered
+1.6499325750163636e+09	info	product/repository.go:32	Create product
+1.649932575016623e+09	info	product/service.go:32	Create product service triggered
+1.649932575016623e+09	info	product/repository.go:32	Create product
+1.6499325750172055e+09	info	product/service.go:32	Create product service triggered
+1.6499325750172055e+09	info	product/repository.go:32	Create product
+1.649932575017712e+09	info	product/service.go:32	Create product service triggered
+1.649932575017712e+09	info	product/repository.go:32	Create product
+1.649932575018227e+09	info	product/service.go:32	Create product service triggered
+1.649932575018227e+09	info	product/repository.go:32	Create product
+1.6499325750183797e+09	info	product/service.go:32	Create product service triggered
+1.6499325750183797e+09	info	product/repository.go:32	Create product
+1.6499325750188868e+09	info	product/service.go:32	Create product service triggered
+1.6499325750188868e+09	info	product/repository.go:32	Create product
+1.649932575019407e+09	info	product/service.go:32	Create product service triggered
+1.649932575019407e+09	info	product/repository.go:32	Create product
+1.6499325750199435e+09	info	product/service.go:32	Create product service triggered
+1.6499325750199435e+09	info	product/repository.go:32	Create product
+1.6499325750201557e+09	info	product/service.go:32	Create product service triggered
+1.6499325750201557e+09	info	product/repository.go:32	Create product
+1.6499325750207357e+09	info	product/service.go:32	Create product service triggered
+1.6499325750207357e+09	info	product/repository.go:32	Create product
+1.6499325750213838e+09	info	product/service.go:32	Create product service triggered
+1.6499325750213838e+09	info	product/repository.go:32	Create product
+1.6499325750219786e+09	info	product/service.go:32	Create product service triggered
+1.6499325750219786e+09	info	product/repository.go:32	Create product
+1.649932575022642e+09	info	product/service.go:32	Create product service triggered
+1.649932575022642e+09	info	product/repository.go:32	Create product
+1.6499325750227108e+09	info	product/service.go:32	Create product service triggered
+1.6499325750227108e+09	info	product/repository.go:32	Create product
+1.6499325750232165e+09	info	product/service.go:32	Create product service triggered
+1.6499325750232165e+09	info	product/repository.go:32	Create product
+1.6499325750237632e+09	info	product/service.go:32	Create product service triggered
+1.6499325750237632e+09	info	product/repository.go:32	Create product
+1.6499325750243006e+09	info	product/service.go:32	Create product service triggered
+1.6499325750243006e+09	info	product/repository.go:32	Create product
+1.6499325750244908e+09	info	product/service.go:32	Create product service triggered
+1.6499325750244908e+09	info	product/repository.go:32	Create product
+1.6499325750250843e+09	info	product/service.go:32	Create product service triggered
+1.6499325750250843e+09	info	product/repository.go:32	Create product
+1.6499325750255902e+09	info	product/service.go:32	Create product service triggered
+1.6499325750255902e+09	info	product/repository.go:32	Create product
+1.6499325750257704e+09	info	product/service.go:32	Create product service triggered
+1.6499325750257704e+09	info	product/repository.go:32	Create product
+1.6499325750263498e+09	info	product/service.go:32	Create product service triggered
+1.6499325750263498e+09	info	product/repository.go:32	Create product
+1.6499325750268576e+09	info	product/service.go:32	Create product service triggered
+1.6499325750268576e+09	info	product/repository.go:32	Create product
+1.6499325750270662e+09	info	product/service.go:32	Create product service triggered
+1.6499325750270662e+09	info	product/repository.go:32	Create product
+1.6499325750276718e+09	info	product/service.go:32	Create product service triggered
+1.6499325750276718e+09	info	product/repository.go:32	Create product
+1.649932575028182e+09	info	product/service.go:32	Create product service triggered
+1.649932575028182e+09	info	product/repository.go:32	Create product
+1.6499325750287075e+09	info	product/service.go:32	Create product service triggered
+1.6499325750287075e+09	info	product/repository.go:32	Create product
+1.6499325750292351e+09	info	product/service.go:32	Create product service triggered
+1.6499325750292351e+09	info	product/repository.go:32	Create product
+1.6499325750297675e+09	info	product/service.go:32	Create product service triggered
+1.6499325750297675e+09	info	product/repository.go:32	Create product
+1.6499325750299764e+09	info	product/service.go:32	Create product service triggered
+1.6499325750299764e+09	info	product/repository.go:32	Create product
+1.6499325750304816e+09	info	product/service.go:32	Create product service triggered
+1.6499325750304816e+09	info	product/repository.go:32	Create product
+1.6499325750310044e+09	info	product/service.go:32	Create product service triggered
+1.6499325750310044e+09	info	product/repository.go:32	Create product
+1.6499325750312536e+09	info	product/service.go:32	Create product service triggered
+1.6499325750312536e+09	info	product/repository.go:32	Create product
+1.649932575031759e+09	info	product/service.go:32	Create product service triggered
+1.649932575031759e+09	info	product/repository.go:32	Create product
+1.6499325750322814e+09	info	product/service.go:32	Create product service triggered
+1.6499325750324798e+09	info	product/repository.go:32	Create product
+1.6499325750324798e+09	info	product/service.go:32	Create product service triggered
+1.6499325750324798e+09	info	product/repository.go:32	Create product
+1.6499325750335102e+09	info	product/service.go:32	Create product service triggered
+1.6499325750335102e+09	info	product/repository.go:32	Create product
+1.6499325750340166e+09	info	product/service.go:32	Create product service triggered
+1.6499325750340166e+09	info	product/repository.go:32	Create product
+1.6499325750348918e+09	info	product/service.go:32	Create product service triggered
+1.6499325750348918e+09	info	product/repository.go:32	Create product
+1.6499325750355585e+09	info	product/service.go:32	Create product service triggered
+1.6499325750355585e+09	info	product/repository.go:32	Create product
+1.649932575035633e+09	info	product/service.go:32	Create product service triggered
+1.649932575035633e+09	info	product/repository.go:32	Create product
+1.6499325750362215e+09	info	product/service.go:32	Create product service triggered
+1.6499325750362215e+09	info	product/repository.go:32	Create product
+1.6499325750367272e+09	info	product/service.go:32	Create product service triggered
+1.6499325750367272e+09	info	product/repository.go:32	Create product
+1.649932575037003e+09	info	product/service.go:32	Create product service triggered
+1.649932575037003e+09	info	product/repository.go:32	Create product
+1.6499325750375757e+09	info	product/service.go:32	Create product service triggered
+1.6499325750375757e+09	info	product/repository.go:32	Create product
+1.6499325750381083e+09	info	product/service.go:32	Create product service triggered
+1.6499325750381083e+09	info	product/repository.go:32	Create product
+1.6499325750386415e+09	info	product/service.go:32	Create product service triggered
+1.6499325750386415e+09	info	product/repository.go:32	Create product
+1.6499325750391972e+09	info	product/service.go:32	Create product service triggered
+1.6499325750391972e+09	info	product/repository.go:32	Create product
+1.6499325750393357e+09	info	product/service.go:32	Create product service triggered
+1.6499325750393357e+09	info	product/repository.go:32	Create product
+1.6499325750399196e+09	info	category/service.go:22	Creating category service triggered
+1.6499325750399196e+09	info	category/repository.go:25	Create category (repository)
+1.649932575042426e+09	info	category/service.go:22	Creating category service triggered
+1.649932575042426e+09	info	category/repository.go:25	Create category (repository)
+1.6499325750430188e+09	info	category/service.go:22	Creating category service triggered
+1.6499325750435243e+09	info	category/repository.go:25	Create category (repository)
+1.6499325750440495e+09	info	category/service.go:22	Creating category service triggered
+1.6499325750441816e+09	info	category/repository.go:25	Create category (repository)
+1.6499325814697638e+09	info	category/handler.go:30	GetAllCategories handler triggered
+1.6499325814707048e+09	info	category/service.go:32	Listing category service triggered
+1.6499325814707048e+09	info	category/repository.go:39	List categories (repository)
+1.6499325956125169e+09	info	product/repository.go:89	Listing products
+1.6499326724516454e+09	info	product/repository.go:89	Listing products
+1.6499326724623888e+09	error	product/repository.go:102	Listing products error (repository)	{"error": "ERROR: syntax error at or near \"desc\" (SQLSTATE 42601)"}
+1.6499327267933538e+09	info	product/repository.go:89	Listing products
+1.6499327487638025e+09	info	product/repository.go:89	Listing products
+1.6499327641832836e+09	info	product/repository.go:89	Listing products
+1.6499327797536824e+09	info	product/repository.go:89	Listing products
+1.6499327858645809e+09	info	product/repository.go:89	Listing products
+1.6499328109741895e+09	info	product/repository.go:89	Listing products
+1.6499328254868505e+09	info	product/repository.go:89	Listing products
+1.6499328715461173e+09	info	product/repository.go:89	Listing products
+1.6499328742099075e+09	info	product/repository.go:89	Listing products
+1.6499328994573016e+09	info	product/repository.go:89	Listing products
+1.6499329121163166e+09	info	product/repository.go:89	Listing products
+1.6499329233418636e+09	info	product/repository.go:89	Listing products
+1.6499329365213907e+09	info	product/repository.go:89	Listing products
+1.6499329491342807e+09	info	product/repository.go:89	Listing products
+1.6499329620542192e+09	info	product/repository.go:89	Listing products
+1.6499329688107963e+09	info	product/repository.go:89	Listing products
+1.6499329768428981e+09	info	product/repository.go:89	Listing products
+1.649932983578611e+09	info	product/repository.go:89	Listing products
+1.649939924207121e+09	info	authentication/signuphandler.go:21	SignUp triggered
+1.6499399242076504e+09	info	user/service.go:33	Get user by email triggered	{"email": "emre@xxx.com"}
+1.6499399242310982e+09	info	user/service.go:23	Create user triggered	{"email": "emre@xxx.com"}
+1.649939926889523e+09	info	authentication/loginhandler.go:22	Login triggered
+1.6499399268901038e+09	info	user/service.go:33	Get user by email triggered	{"email": "emre@xxx.com"}
+1.649939931414277e+09	info	category/handler.go:41	CreateCategoryFromCSV handler triggered
+1.6499399314149284e+09	info	product/service.go:32	Create product service triggered
+1.6499399314149284e+09	info	product/repository.go:32	Create product
+1.6499399314251633e+09	info	product/service.go:32	Create product service triggered
+1.6499399314251633e+09	info	product/repository.go:32	Create product
+1.6499399314261637e+09	info	product/service.go:32	Create product service triggered
+1.6499399314261637e+09	info	product/repository.go:32	Create product
+1.64993993142706e+09	info	product/service.go:32	Create product service triggered
+1.6499399314273605e+09	info	product/repository.go:32	Create product
+1.649939931427868e+09	info	product/service.go:32	Create product service triggered
+1.6499399314279437e+09	info	product/repository.go:32	Create product
+1.6499399314284534e+09	info	product/service.go:32	Create product service triggered
+1.6499399314284534e+09	info	product/repository.go:32	Create product
+1.6499399314284534e+09	info	product/service.go:32	Create product service triggered
+1.649939931428986e+09	info	product/repository.go:32	Create product
+1.649939931429513e+09	info	product/service.go:32	Create product service triggered
+1.649939931429513e+09	info	product/repository.go:32	Create product
+1.6499399314295838e+09	info	product/service.go:32	Create product service triggered
+1.6499399314300892e+09	info	product/repository.go:32	Create product
+1.6499399314300892e+09	info	product/service.go:32	Create product service triggered
+1.6499399314300892e+09	info	product/repository.go:32	Create product
+1.6499399314306157e+09	info	product/service.go:32	Create product service triggered
+1.6499399314306157e+09	info	product/repository.go:32	Create product
+1.6499399314311416e+09	info	product/service.go:32	Create product service triggered
+1.6499399314311416e+09	info	product/repository.go:32	Create product
+1.6499399314316695e+09	info	product/service.go:32	Create product service triggered
+1.6499399314316695e+09	info	product/repository.go:32	Create product
+1.6499399314321952e+09	info	product/service.go:32	Create product service triggered
+1.6499399314321952e+09	info	product/repository.go:32	Create product
+1.6499399314324732e+09	info	product/service.go:32	Create product service triggered
+1.6499399314324732e+09	info	product/repository.go:32	Create product
+1.6499399314330738e+09	info	product/service.go:32	Create product service triggered
+1.6499399314330738e+09	info	product/repository.go:32	Create product
+1.6499399314336762e+09	info	product/service.go:32	Create product service triggered
+1.6499399314336762e+09	info	product/repository.go:32	Create product
+1.649939931434336e+09	info	product/service.go:32	Create product service triggered
+1.649939931434336e+09	info	product/repository.go:32	Create product
+1.6499399314344003e+09	info	product/service.go:32	Create product service triggered
+1.6499399314344003e+09	info	product/repository.go:32	Create product
+1.6499399314349105e+09	info	product/service.go:32	Create product service triggered
+1.6499399314349105e+09	info	product/repository.go:32	Create product
+1.6499399314357347e+09	info	product/service.go:32	Create product service triggered
+1.6499399314357347e+09	info	product/repository.go:32	Create product
+1.649939931435882e+09	info	product/service.go:32	Create product service triggered
+1.649939931436389e+09	info	product/repository.go:32	Create product
+1.649939931436389e+09	info	product/service.go:32	Create product service triggered
+1.649939931436389e+09	info	product/repository.go:32	Create product
+1.649939931436918e+09	info	product/service.go:32	Create product service triggered
+1.649939931436918e+09	info	product/repository.go:32	Create product
+1.6499399314374473e+09	info	product/service.go:32	Create product service triggered
+1.6499399314374473e+09	info	product/repository.go:32	Create product
+1.6499399314379785e+09	info	product/service.go:32	Create product service triggered
+1.6499399314379785e+09	info	product/repository.go:32	Create product
+1.6499399314385068e+09	info	product/service.go:32	Create product service triggered
+1.6499399314385068e+09	info	product/repository.go:32	Create product
+1.6499399314390674e+09	info	product/service.go:32	Create product service triggered
+1.6499399314390674e+09	info	product/repository.go:32	Create product
+1.6499399314392905e+09	info	product/service.go:32	Create product service triggered
+1.6499399314392905e+09	info	product/repository.go:32	Create product
+1.6499399314397967e+09	info	product/service.go:32	Create product service triggered
+1.6499399314397967e+09	info	product/repository.go:32	Create product
+1.6499399314403203e+09	info	product/service.go:32	Create product service triggered
+1.6499399314403203e+09	info	product/repository.go:32	Create product
+1.649939931440847e+09	info	product/service.go:32	Create product service triggered
+1.649939931440847e+09	info	product/repository.go:32	Create product
+1.6499399314413762e+09	info	product/service.go:32	Create product service triggered
+1.6499399314413762e+09	info	product/repository.go:32	Create product
+1.6499399314419167e+09	info	product/service.go:32	Create product service triggered
+1.6499399314419167e+09	info	product/repository.go:32	Create product
+1.6499399314421558e+09	info	product/service.go:32	Create product service triggered
+1.6499399314426668e+09	info	product/repository.go:32	Create product
+1.6499399314426668e+09	info	product/service.go:32	Create product service triggered
+1.6499399314426668e+09	info	product/repository.go:32	Create product
+1.6499399314432056e+09	info	product/service.go:32	Create product service triggered
+1.6499399314432056e+09	info	product/repository.go:32	Create product
+1.649939931443854e+09	info	product/service.go:32	Create product service triggered
+1.649939931443854e+09	info	product/repository.go:32	Create product
+1.6499399314443607e+09	info	product/service.go:32	Create product service triggered
+1.6499399314443607e+09	info	product/repository.go:32	Create product
+1.6499399314451349e+09	info	product/service.go:32	Create product service triggered
+1.6499399314451349e+09	info	product/repository.go:32	Create product
+1.6499399314451349e+09	info	product/service.go:32	Create product service triggered
+1.6499399314451349e+09	info	product/repository.go:32	Create product
+1.6499399314456546e+09	info	product/service.go:32	Create product service triggered
+1.6499399314456546e+09	info	product/repository.go:32	Create product
+1.6499399314461818e+09	info	product/service.go:32	Create product service triggered
+1.6499399314461818e+09	info	product/repository.go:32	Create product
+1.649939931446713e+09	info	product/service.go:32	Create product service triggered
+1.649939931446713e+09	info	product/repository.go:32	Create product
+1.649939931447253e+09	info	product/service.go:32	Create product service triggered
+1.649939931447253e+09	info	product/repository.go:32	Create product
+1.6499399314477758e+09	info	product/service.go:32	Create product service triggered
+1.6499399314477758e+09	info	product/repository.go:32	Create product
+1.649939931447989e+09	info	product/service.go:32	Create product service triggered
+1.649939931447989e+09	info	product/repository.go:32	Create product
+1.6499399314484966e+09	info	product/service.go:32	Create product service triggered
+1.6499399314484966e+09	info	product/repository.go:32	Create product
+1.649939931449248e+09	info	product/service.go:32	Create product service triggered
+1.649939931449248e+09	info	product/repository.go:32	Create product
+1.6499399314497545e+09	info	product/service.go:32	Create product service triggered
+1.6499399314500408e+09	info	product/repository.go:32	Create product
+1.6499399314500408e+09	info	product/service.go:32	Create product service triggered
+1.6499399314500408e+09	info	product/repository.go:32	Create product
+1.6499399314506185e+09	info	product/service.go:32	Create product service triggered
+1.6499399314506185e+09	info	product/repository.go:32	Create product
+1.6499399314512131e+09	info	product/service.go:32	Create product service triggered
+1.6499399314512131e+09	info	product/repository.go:32	Create product
+1.6499399314517217e+09	info	product/service.go:32	Create product service triggered
+1.6499399314517217e+09	info	product/repository.go:32	Create product
+1.6499399314522386e+09	info	product/service.go:32	Create product service triggered
+1.6499399314522386e+09	info	product/repository.go:32	Create product
+1.6499399314524357e+09	info	product/service.go:32	Create product service triggered
+1.6499399314524357e+09	info	product/repository.go:32	Create product
+1.649939931452944e+09	info	product/service.go:32	Create product service triggered
+1.649939931452944e+09	info	product/repository.go:32	Create product
+1.6499399314534814e+09	info	product/service.go:32	Create product service triggered
+1.6499399314534814e+09	info	product/repository.go:32	Create product
+1.6499399314540212e+09	info	product/service.go:32	Create product service triggered
+1.6499399314540212e+09	info	product/repository.go:32	Create product
+1.6499399314542947e+09	info	product/service.go:32	Create product service triggered
+1.6499399314542947e+09	info	product/repository.go:32	Create product
+1.649939931454893e+09	info	product/service.go:32	Create product service triggered
+1.649939931454893e+09	info	product/repository.go:32	Create product
+1.649939931455402e+09	info	product/service.go:32	Create product service triggered
+1.649939931455402e+09	info	product/repository.go:32	Create product
+1.6499399314559293e+09	info	product/service.go:32	Create product service triggered
+1.6499399314559293e+09	info	product/repository.go:32	Create product
+1.6499399314564655e+09	info	product/service.go:32	Create product service triggered
+1.6499399314564655e+09	info	product/repository.go:32	Create product
+1.6499399314570856e+09	info	product/service.go:32	Create product service triggered
+1.6499399314570856e+09	info	product/repository.go:32	Create product
+1.649939931457805e+09	info	product/service.go:32	Create product service triggered
+1.649939931457805e+09	info	product/repository.go:32	Create product
+1.6499399314578948e+09	info	product/service.go:32	Create product service triggered
+1.6499399314578948e+09	info	product/repository.go:32	Create product
+1.6499399314584005e+09	info	product/service.go:32	Create product service triggered
+1.6499399314584005e+09	info	product/repository.go:32	Create product
+1.649939931459463e+09	info	product/service.go:32	Create product service triggered
+1.649939931459463e+09	info	product/repository.go:32	Create product
+1.6499399314599915e+09	info	product/service.go:32	Create product service triggered
+1.6499399314599915e+09	info	product/repository.go:32	Create product
+1.6499399314605193e+09	info	product/service.go:32	Create product service triggered
+1.6499399314605193e+09	info	product/repository.go:32	Create product
+1.6499399314608257e+09	info	product/service.go:32	Create product service triggered
+1.6499399314608257e+09	info	product/repository.go:32	Create product
+1.6499399314613314e+09	info	product/service.go:32	Create product service triggered
+1.6499399314613314e+09	info	product/repository.go:32	Create product
+1.6499399314618511e+09	info	product/service.go:32	Create product service triggered
+1.6499399314618511e+09	info	product/repository.go:32	Create product
+1.6499399314624658e+09	info	product/service.go:32	Create product service triggered
+1.6499399314624658e+09	info	product/repository.go:32	Create product
+1.6499399314629936e+09	info	product/service.go:32	Create product service triggered
+1.6499399314629936e+09	info	product/repository.go:32	Create product
+1.6499399314632423e+09	info	product/service.go:32	Create product service triggered
+1.6499399314632423e+09	info	product/repository.go:32	Create product
+1.6499399314637496e+09	info	product/service.go:32	Create product service triggered
+1.6499399314637496e+09	info	product/repository.go:32	Create product
+1.6499399314644725e+09	info	product/service.go:32	Create product service triggered
+1.6499399314644725e+09	info	product/repository.go:32	Create product
+1.6499399314649804e+09	info	product/service.go:32	Create product service triggered
+1.6499399314649804e+09	info	product/repository.go:32	Create product
+1.649939931465615e+09	info	product/service.go:32	Create product service triggered
+1.649939931465615e+09	info	product/repository.go:32	Create product
+1.649939931466125e+09	info	product/service.go:32	Create product service triggered
+1.649939931466125e+09	info	product/repository.go:32	Create product
+1.6499399314663577e+09	info	product/service.go:32	Create product service triggered
+1.6499399314663577e+09	info	product/repository.go:32	Create product
+1.6499399314669847e+09	info	product/service.go:32	Create product service triggered
+1.6499399314669847e+09	info	product/repository.go:32	Create product
+1.6499399314674907e+09	info	product/service.go:32	Create product service triggered
+1.649939931467698e+09	info	product/repository.go:32	Create product
+1.649939931467698e+09	info	product/service.go:32	Create product service triggered
+1.649939931467698e+09	info	product/repository.go:32	Create product
+1.649939931468287e+09	info	product/service.go:32	Create product service triggered
+1.649939931468287e+09	info	product/repository.go:32	Create product
+1.6499399314687939e+09	info	product/service.go:32	Create product service triggered
+1.6499399314687939e+09	info	product/repository.go:32	Create product
+1.6499399314693854e+09	info	product/service.go:32	Create product service triggered
+1.6499399314693854e+09	info	product/repository.go:32	Create product
+1.6499399314698932e+09	info	product/service.go:32	Create product service triggered
+1.6499399314698932e+09	info	product/repository.go:32	Create product
+1.6499399314704263e+09	info	product/service.go:32	Create product service triggered
+1.6499399314704263e+09	info	product/repository.go:32	Create product
+1.649939931471018e+09	info	product/service.go:32	Create product service triggered
+1.649939931471018e+09	info	product/repository.go:32	Create product
+1.6499399314716747e+09	info	product/service.go:32	Create product service triggered
+1.6499399314716747e+09	info	product/repository.go:32	Create product
+1.6499399314727654e+09	info	product/service.go:32	Create product service triggered
+1.6499399314727654e+09	info	product/repository.go:32	Create product
+1.6499399314734683e+09	info	product/service.go:32	Create product service triggered
+1.6499399314734683e+09	info	product/repository.go:32	Create product
+1.6499399314735532e+09	info	product/service.go:32	Create product service triggered
+1.6499399314735532e+09	info	product/repository.go:32	Create product
+1.6499399314740598e+09	info	product/service.go:32	Create product service triggered
+1.6499399314740598e+09	info	product/repository.go:32	Create product
+1.6499399314745893e+09	info	product/service.go:32	Create product service triggered
+1.6499399314745893e+09	info	product/repository.go:32	Create product
+1.6499399314751124e+09	info	product/service.go:32	Create product service triggered
+1.6499399314751124e+09	info	product/repository.go:32	Create product
+1.6499399314756258e+09	info	product/service.go:32	Create product service triggered
+1.6499399314756258e+09	info	product/repository.go:32	Create product
+1.6499399314763045e+09	info	product/service.go:32	Create product service triggered
+1.6499399314763045e+09	info	product/repository.go:32	Create product
+1.6499399314763045e+09	info	product/service.go:32	Create product service triggered
+1.6499399314768407e+09	info	product/repository.go:32	Create product
+1.6499399314773781e+09	info	product/service.go:32	Create product service triggered
+1.6499399314773781e+09	info	product/repository.go:32	Create product
+1.649939931477439e+09	info	product/service.go:32	Create product service triggered
+1.649939931477439e+09	info	product/repository.go:32	Create product
+1.649939931478008e+09	info	product/service.go:32	Create product service triggered
+1.649939931478008e+09	info	product/repository.go:32	Create product
+1.6499399314785135e+09	info	product/service.go:32	Create product service triggered
+1.6499399314785135e+09	info	product/repository.go:32	Create product
+1.6499399314790363e+09	info	category/service.go:22	Creating category service triggered
+1.6499399314790363e+09	info	category/repository.go:25	Create category (repository)
+1.6499399314812603e+09	info	category/service.go:22	Creating category service triggered
+1.6499399314812603e+09	info	category/repository.go:25	Create category (repository)
+1.6499399314822917e+09	info	category/service.go:22	Creating category service triggered
+1.6499399314822917e+09	info	category/repository.go:25	Create category (repository)
+1.6499399314828596e+09	info	category/service.go:22	Creating category service triggered
+1.6499399314828596e+09	info	category/repository.go:25	Create category (repository)
+1.6499399333972998e+09	info	category/handler.go:30	GetAllCategories handler triggered
+1.6499399333982909e+09	info	category/service.go:32	Listing category service triggered
+1.6499399333982909e+09	info	category/repository.go:39	List categories (repository)
+1.649939941631315e+09	info	product/repository.go:89	Listing products
+1.649939953772303e+09	info	product/repository.go:89	Listing products

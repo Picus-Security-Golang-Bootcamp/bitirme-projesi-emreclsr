@@ -25,18 +25,17 @@ func main() {
 	}
 
 	// Initialize global logger
-	logger.NewLogger()
-	defer logger.Close()
+	//logger.NewLogger()
+	//defer logger.Close()
+	logger.InitLogger()
 
 	DB, err := db.Connect()
 	if err != nil {
 		zap.L().Fatal("Error connecting to database", zap.Error(err))
-		//log.Fatal("Error connecting to database: %v", err)
 	}
 	err = DB.AutoMigrate(&user.User{}, &category.Category{}, &product.Product{}, &basket.Basket{}, &order.Order{})
 	if err != nil {
 		zap.L().Fatal("Error auto migrating database", zap.Error(err))
-		//log.Fatal("Error migrating database: %v", err)
 	}
 
 	token := authentication.NewToken()

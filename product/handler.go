@@ -2,6 +2,7 @@ package product
 
 import (
 	"github.com/emreclsr/picusfinal/authentication"
+	"github.com/emreclsr/picusfinal/pagination"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 	"net/http"
@@ -47,21 +48,29 @@ func (h *ProductHandler) CreateProduct(c *gin.Context) {
 	c.JSON(http.StatusOK, product)
 }
 
+//func (h *ProductHandler) GetProducts(c *gin.Context) {
+//	zap.L().Info("GetProducts handler triggered")
+//	_, err := h.token.VerifyToken(c)
+//	if err != nil {
+//		zap.L().Error("Token verification failed in get products handler", zap.Error(err))
+//		c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
+//		return
+//	}
+//	products, err := h.ProductService.List()
+//	if err != nil {
+//		zap.L().Error("Error in getting products (handler)", zap.Error(err))
+//		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+//		return
+//	}
+//
+//	c.JSON(http.StatusOK, products)
+//}
+
 func (h *ProductHandler) GetProducts(c *gin.Context) {
-	zap.L().Info("GetProducts handler triggered")
-	_, err := h.token.VerifyToken(c)
-	if err != nil {
-		zap.L().Error("Token verification failed in get products handler", zap.Error(err))
-		c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
-		return
-	}
-	products, err := h.ProductService.List()
-	if err != nil {
-		zap.L().Error("Error in getting products (handler)", zap.Error(err))
-		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-		return
-	}
-	c.JSON(http.StatusOK, products)
+	pg := pagination.GeneratePaginationRequest(c)
+	response := h.ProductService.List(c, pg)
+	
+	c.JSON(http.StatusOK, response)
 }
 
 func (h *ProductHandler) Search(c *gin.Context) {

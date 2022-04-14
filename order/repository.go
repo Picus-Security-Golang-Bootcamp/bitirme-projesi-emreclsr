@@ -25,7 +25,7 @@ func NewOrderRepository(db *gorm.DB) OrderRepository {
 }
 
 func (r *repository) Create(order *Order) error {
-	zap.L().Info("Creating order", zap.Reflect("order", order))
+	zap.L().Info("Creating order")
 	err := r.db.Create(order).Error
 	if err != nil {
 		return err
