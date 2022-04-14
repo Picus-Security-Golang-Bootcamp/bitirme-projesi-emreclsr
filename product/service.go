@@ -17,7 +17,7 @@ type ProductService interface {
 	Delete(id uint) error
 	Update(product *Product) error
 	//List() ([]Product, error)
-	List(c *gin.Context, pg *pagination.Pagination) Response
+	List(c *gin.Context, pg *pagination.Pagination) (*pagination.Pagination, error)
 	Get(id uint) (*Product, error)
 }
 
@@ -78,20 +78,20 @@ func (s *productService) Update(product *Product) error {
 //	return products, nil
 //}
 
-type Response struct {
-	Success bool        `json:"success"`
-	Message string      `json:"message"`
-	Data    interface{} `json:"data"`
-}
+//type Response struct {
+//	Success bool        `json:"success"`
+//	Message string      `json:"message"`
+//	Data    interface{} `json:"data"`
+//}
 
-func (s *productService) List(c *gin.Context, pg *pagination.Pagination) Response {
-	operationResult, _, totalPages := s.repo.List(pg)
+func (s *productService) List(c *gin.Context, pg *pagination.Pagination) (*pagination.Pagination, error) {
+	operationResult, err, totalPages := s.repo.List(pg)
 
-	if operationResult.Error != nil {
-		return Response{Success: false, Message: operationResult.Error.Error(), Data: nil}
+	if err != nil {
+		return nil, err
 	}
 
-	var data = operationResult.Result.(*pagination.Pagination)
+	var data = operationResult
 
 	//get current url path
 	urlPath := c.Request.URL.Path
@@ -113,7 +113,7 @@ func (s *productService) List(c *gin.Context, pg *pagination.Pagination) Respons
 		//reset previous page pagination response
 		data.PreviousPage = ""
 	}
-	return Response{Success: true, Message: "", Data: data}
+	return data, nil
 
 }
 

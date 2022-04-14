@@ -68,9 +68,13 @@ func (h *ProductHandler) CreateProduct(c *gin.Context) {
 
 func (h *ProductHandler) GetProducts(c *gin.Context) {
 	pg := pagination.GeneratePaginationRequest(c)
-	response := h.ProductService.List(c, pg)
-	
-	c.JSON(http.StatusOK, response)
+	pagi, err := h.ProductService.List(c, pg)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, pagi)
 }
 
 func (h *ProductHandler) Search(c *gin.Context) {

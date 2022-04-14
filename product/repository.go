@@ -13,7 +13,7 @@ type ProductRepository interface {
 	Delete(id uint) error
 	Update(product *Product) error
 	//List() ([]Product, error)
-	List(pg *pagination.Pagination) (RepositoryResult, error, int)
+	List(pg *pagination.Pagination) (*pagination.Pagination, error, int)
 	Get(id uint) (*Product, error)
 }
 
@@ -80,12 +80,12 @@ func (r *repository) Update(product *Product) error {
 //	return products, nil
 //}
 
-type RepositoryResult struct {
-	Result interface{}
-	Error  error
-}
+//type RepositoryResult struct {
+//	Result interface{}
+//	Error  error
+//}
 
-func (r *repository) List(pg *pagination.Pagination) (RepositoryResult, error, int) {
+func (r *repository) List(pg *pagination.Pagination) (*pagination.Pagination, error, int) {
 	zap.L().Info("Listing products")
 	var products []Product
 
@@ -100,16 +100,15 @@ func (r *repository) List(pg *pagination.Pagination) (RepositoryResult, error, i
 	err := r.db.Limit(pg.Limit).Offset(offset).Order(pg.Sort).Find(&products).Error
 	if err != nil {
 		zap.L().Error("Listing products error (repository)", zap.Error(err))
-		return RepositoryResult{}, err, 0
+		return &pagination.Pagination{}, err, 0
 	}
 	pg.Rows = products
 
 	// count all data
-
 	err = r.db.Model(&Product{}).Count(&totalRows).Error
 	if err != nil {
 		zap.L().Error("Counting products error (repository)", zap.Error(err))
-		return RepositoryResult{}, err, 0
+		return &pagination.Pagination{}, err, 0
 	}
 	pg.TotalRows = int(totalRows)
 
@@ -134,7 +133,7 @@ func (r *repository) List(pg *pagination.Pagination) (RepositoryResult, error, i
 	pg.FromRow = int(fromRow)
 	pg.ToRow = int(toRow)
 
-	return RepositoryResult{Result: pg}, nil, totalPages
+	return pg, nil, totalPages
 }
 
 func (r *repository) Get(id uint) (*Product, error) {
