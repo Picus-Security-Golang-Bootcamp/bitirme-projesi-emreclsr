@@ -48,4 +48,5 @@ func (au *Authenticate) Login(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, tknErr)
 	}
 	c.SetCookie("TokenJWT", tkstring, 60*60*24, "/", "localhost", false, true)
+	c.JSON(http.StatusOK, "Logged in successfully")
 }

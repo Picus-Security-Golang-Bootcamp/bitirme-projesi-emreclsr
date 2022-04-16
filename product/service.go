@@ -3,7 +3,6 @@ package product
 import (
 	"fmt"
 	"github.com/emreclsr/picusfinal/pagination"
-	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 )
 
@@ -17,7 +16,7 @@ type ProductService interface {
 	Delete(id uint) error
 	Update(product *Product) error
 	//List() ([]Product, error)
-	List(c *gin.Context, pg *pagination.Pagination) (*pagination.Pagination, error)
+	List(pg *pagination.Pagination) (*pagination.Pagination, error)
 	Get(id uint) (*Product, error)
 }
 
@@ -84,8 +83,8 @@ func (s *productService) Update(product *Product) error {
 //	Data    interface{} `json:"data"`
 //}
 
-func (s *productService) List(c *gin.Context, pg *pagination.Pagination) (*pagination.Pagination, error) {
-	operationResult, err, totalPages := s.repo.List(pg)
+func (s *productService) List(pg *pagination.Pagination) (*pagination.Pagination, error) {
+	operationResult, err := s.repo.List(pg)
 
 	if err != nil {
 		return nil, err
@@ -93,23 +92,20 @@ func (s *productService) List(c *gin.Context, pg *pagination.Pagination) (*pagin
 
 	var data = operationResult
 
-	//get current url path
-	urlPath := c.Request.URL.Path
-
 	//set first & last page pagination response
-	data.FirstPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", urlPath, pg.Limit, 0, pg.Sort)
-	data.LastPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", urlPath, pg.Limit, totalPages, pg.Sort)
+	data.FirstPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", pg.URLPath, pg.Limit, 0, pg.Sort)
+	data.LastPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", pg.URLPath, pg.Limit, pg.TotalPages, pg.Sort)
 
 	if data.Page > 0 {
 		//set previous page pagination response
-		data.PreviousPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", urlPath, pg.Limit, data.Page-1, pg.Sort)
+		data.PreviousPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", pg.URLPath, pg.Limit, data.Page-1, pg.Sort)
 	}
-	if data.Page < totalPages {
+	if data.Page < pg.TotalPages {
 		//set next page pagination response
-		data.NextPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", urlPath, pg.Limit, data.Page+1, pg.Sort)
+		data.NextPage = fmt.Sprintf("%s?limit=%d&page=%d&sort=%s", pg.URLPath, pg.Limit, data.Page+1, pg.Sort)
 	}
 
-	if data.Page > totalPages {
+	if data.Page > pg.TotalPages {
 		//reset previous page pagination response
 		data.PreviousPage = ""
 	}

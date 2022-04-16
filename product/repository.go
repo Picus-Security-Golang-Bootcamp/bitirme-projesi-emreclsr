@@ -13,7 +13,7 @@ type ProductRepository interface {
 	Delete(id uint) error
 	Update(product *Product) error
 	//List() ([]Product, error)
-	List(pg *pagination.Pagination) (*pagination.Pagination, error, int)
+	List(pg *pagination.Pagination) (*pagination.Pagination, error)
 	Get(id uint) (*Product, error)
 }
 
@@ -85,12 +85,11 @@ func (r *repository) Update(product *Product) error {
 //	Error  error
 //}
 
-func (r *repository) List(pg *pagination.Pagination) (*pagination.Pagination, error, int) {
+func (r *repository) List(pg *pagination.Pagination) (*pagination.Pagination, error) {
 	zap.L().Info("Listing products")
 	var products []Product
 
 	var totalRows int64 = 0
-	var totalPages int = 0
 	var fromRow int64 = 0
 	var toRow int64 = 0
 
@@ -100,7 +99,7 @@ func (r *repository) List(pg *pagination.Pagination) (*pagination.Pagination, er
 	err := r.db.Limit(pg.Limit).Offset(offset).Order(pg.Sort).Find(&products).Error
 	if err != nil {
 		zap.L().Error("Listing products error (repository)", zap.Error(err))
-		return &pagination.Pagination{}, err, 0
+		return &pagination.Pagination{}, err
 	}
 	pg.Rows = products
 
@@ -108,19 +107,19 @@ func (r *repository) List(pg *pagination.Pagination) (*pagination.Pagination, er
 	err = r.db.Model(&Product{}).Count(&totalRows).Error
 	if err != nil {
 		zap.L().Error("Counting products error (repository)", zap.Error(err))
-		return &pagination.Pagination{}, err, 0
+		return &pagination.Pagination{}, err
 	}
 	pg.TotalRows = int(totalRows)
 
 	// calculate total pages
-	totalPages = int(math.Ceil(float64(totalRows)/float64(pg.Limit))) - 1
+	pg.TotalPages = int(math.Ceil(float64(totalRows)/float64(pg.Limit))) - 1
 
 	if pg.Page == 0 {
 		// set from & to row on first page
 		fromRow = 1
 		toRow = int64(pg.Limit)
 	} else {
-		if pg.Page <= totalPages {
+		if pg.Page <= pg.TotalPages {
 			// calculate from & to row on other pages
 			fromRow = int64(pg.Page*pg.Limit + 1)
 			toRow = int64((pg.Page + 1) * pg.Limit)
@@ -133,7 +132,7 @@ func (r *repository) List(pg *pagination.Pagination) (*pagination.Pagination, er
 	pg.FromRow = int(fromRow)
 	pg.ToRow = int(toRow)
 
-	return pg, nil, totalPages
+	return pg, nil
 }
 
 func (r *repository) Get(id uint) (*Product, error) {

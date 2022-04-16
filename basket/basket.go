@@ -26,7 +26,6 @@ func (b *Basket) CalculateTotalPrice() {
 	for i, v := range b.Amount {
 		b.TotalPrice += float64(v) * b.Products[i].Price
 	}
-
 }
 
 func (b *Basket) CalculateLineTotal() pq.Float64Array {
@@ -51,17 +50,18 @@ func (b *Basket) ToOrder() *order.Order {
 	return &o
 }
 
-func (b *Basket) CheckItems() (bool, error) {
+func (b *Basket) CheckItemsCountAndBasketQuantity() (bool, error) {
 	maxItem, err := strconv.Atoi(os.Getenv("MAX_ITEM_PER_BASKET"))
 	if err != nil {
 		zap.L().Error("Error while converting MAX_ITEM_PER_BASKET to int", zap.Error(err))
 		return false, err
 	}
 	if len(b.ProductIds) > maxItem {
+
 		return false, errors.New("max item limit exceeded")
 	}
 
-	maxAmount, err := strconv.Atoi(os.Getenv("MAX_AMOUNT_OF_ITEM"))
+	maxAmount, err := strconv.Atoi(os.Getenv("MAX_QTY_PER_PRODUCT"))
 	if err != nil {
 		zap.L().Error("Error while converting MAX_AMOUNT_OF_ITEM to int", zap.Error(err))
 		return false, err

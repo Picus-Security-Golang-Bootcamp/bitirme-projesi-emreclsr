@@ -21,7 +21,8 @@ type Order struct {
 }
 
 func (o *Order) CheckTime() bool {
-	if o.CreatedAt.Add(14 * 24 * time.Hour).After(time.Now()) {
+	duration := time.Duration(14 * 24 * time.Hour)
+	if o.CreatedAt.Add(duration).After(time.Now()) {
 		return true
 	}
 	return false

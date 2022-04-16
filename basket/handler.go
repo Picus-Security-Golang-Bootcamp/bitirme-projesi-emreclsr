@@ -158,7 +158,7 @@ func (h *BasketHandler) CreateAnOrder(c *gin.Context) {
 	}
 
 	// Check permitted items count and amount in basket
-	status, err := basket.CheckItems()
+	status, err := basket.CheckItemsCountAndBasketQuantity()
 	if err != nil {
 		zap.L().Error("Error while checking items in create order handler", zap.Error(err))
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

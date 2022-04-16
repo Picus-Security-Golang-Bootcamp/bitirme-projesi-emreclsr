@@ -33,7 +33,7 @@ func (t *Token) CreateToken(usr *user.User) (string, error) {
 		UserID: usr.ID,
 		Role:   usr.Role,
 	}
-	token.ExpiresAt = time.Now().Add(time.Minute * 30).Unix()
+	token.ExpiresAt = time.Now().Add(time.Hour * 1).Unix()
 	at, err := jwt.NewWithClaims(jwt.SigningMethodHS256, token).SignedString([]byte(os.Getenv("SECRET_KEY")))
 	if err != nil {
 		zap.L().Error("Error while creating token")
