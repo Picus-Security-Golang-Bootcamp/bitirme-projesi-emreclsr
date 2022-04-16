@@ -10,21 +10,21 @@ import (
 )
 
 type Handlers struct {
-	Basket         basket.BasketHandler
-	Category       category.CategoryHandler
-	Order          order.OrderHandler
-	Product        product.ProductHandler
-	User           authentication.Users
-	Authentication authentication.Authenticate
+	Basket         basket.IBasketHandler
+	Category       category.ICategoryHandler
+	Order          order.IOrderHandler
+	Product        product.IProductHandler
+	User           authentication.IUsers
+	Authentication authentication.IAuthenticate
 }
 
-func NewHandlers(services services.Services, token authentication.Token) *Handlers {
+func NewHandlers(services services.Services, token authentication.TokenInterface) *Handlers {
 	return &Handlers{
-		Basket:         *basket.NewBasketHandler(services.Basket, token, services.User, services.Order, services.Product),
-		Category:       *category.NewCategoryHandler(services.Category, token, services.Product),
-		Order:          *order.NewOrderHandler(services.Order, token),
-		Product:        *product.NewProductHandler(services.Product, token),
-		User:           *authentication.NewUsers(services.User),
-		Authentication: *authentication.NewAuthenticate(services.User, &token),
+		Basket:         basket.NewBasketHandler(services.Basket, token, services.User, services.Order, services.Product),
+		Category:       category.NewCategoryHandler(services.Category, token, services.Product),
+		Order:          order.NewOrderHandler(services.Order, token),
+		Product:        product.NewProductHandler(services.Product, token),
+		User:           authentication.NewUsers(services.User),
+		Authentication: authentication.NewAuthenticate(services.User, token),
 	}
 }

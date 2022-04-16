@@ -1,9 +1,10 @@
-package product
+package product_test
 
 import (
 	"fmt"
 	"github.com/emreclsr/picusfinal/db"
 	"github.com/emreclsr/picusfinal/pagination"
+	"github.com/emreclsr/picusfinal/product"
 	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
 	"testing"
@@ -19,24 +20,24 @@ func init() {
 func Test_Create_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&Product{})
+	DB.AutoMigrate(&product.Product{})
 	defer db.DropDB(DB)
 
-	product := Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
-	repo := NewProductRepository(DB)
-	err = repo.Create(&product)
+	testProduct := product.Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
+	repo := product.NewProductRepository(DB)
+	err = repo.Create(&testProduct)
 	assert.Nil(t, err)
 }
 
 func Test_Search_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&Product{})
+	DB.AutoMigrate(&product.Product{})
 	defer db.DropDB(DB)
 
-	product := Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
-	repo := NewProductRepository(DB)
-	err = repo.Create(&product)
+	testProduct := product.Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
+	repo := product.NewProductRepository(DB)
+	err = repo.Create(&testProduct)
 	assert.Nil(t, err)
 	productList, err := repo.Search("test")
 	assert.Nil(t, err)
@@ -46,14 +47,14 @@ func Test_Search_Should_Success(t *testing.T) {
 func Test_Delete_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&Product{})
+	DB.AutoMigrate(&product.Product{})
 	defer db.DropDB(DB)
 
-	product := Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
-	repo := NewProductRepository(DB)
-	err = repo.Create(&product)
+	testProduct := product.Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
+	repo := product.NewProductRepository(DB)
+	err = repo.Create(&testProduct)
 	assert.Nil(t, err)
-	err = repo.Delete(product.ID)
+	err = repo.Delete(testProduct.ID)
 	assert.Nil(t, err)
 
 }
@@ -61,17 +62,17 @@ func Test_Delete_Should_Success(t *testing.T) {
 func Test_Update_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&Product{})
+	DB.AutoMigrate(&product.Product{})
 	defer db.DropDB(DB)
 
-	product := Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
-	repo := NewProductRepository(DB)
-	err = repo.Create(&product)
+	testProduct := product.Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
+	repo := product.NewProductRepository(DB)
+	err = repo.Create(&testProduct)
 	assert.Nil(t, err)
-	product.Name = "test2"
-	err = repo.Update(&product)
+	testProduct.Name = "test2"
+	err = repo.Update(&testProduct)
 	assert.Nil(t, err)
-	prd, err := repo.Get(product.ID)
+	prd, err := repo.Get(testProduct.ID)
 	assert.Nil(t, err)
 	assert.Equal(t, "test2", prd.Name)
 }
@@ -79,13 +80,13 @@ func Test_Update_Should_Success(t *testing.T) {
 func Test_List_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&Product{})
+	DB.AutoMigrate(&product.Product{})
 	defer db.DropDB(DB)
 	var pag pagination.Pagination
 	pag.Limit = 10
-	product := Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
-	repo := NewProductRepository(DB)
-	err = repo.Create(&product)
+	testProduct := product.Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
+	repo := product.NewProductRepository(DB)
+	err = repo.Create(&testProduct)
 	assert.Nil(t, err)
 	page, err := repo.List(&pag)
 
@@ -97,12 +98,12 @@ func Test_List_Should_Success(t *testing.T) {
 func Test_Get_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&Product{})
+	DB.AutoMigrate(&product.Product{})
 	defer db.DropDB(DB)
 
-	product := Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
-	repo := NewProductRepository(DB)
-	err = repo.Create(&product)
+	testProduct := product.Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
+	repo := product.NewProductRepository(DB)
+	err = repo.Create(&testProduct)
 
 	p1, err := repo.Get(1)
 	assert.Nil(t, err)

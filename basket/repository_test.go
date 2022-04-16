@@ -1,6 +1,7 @@
-package basket
+package basket_test
 
 import (
+	"github.com/emreclsr/picusfinal/basket"
 	"github.com/emreclsr/picusfinal/db"
 	"github.com/emreclsr/picusfinal/user"
 	"github.com/lib/pq"
@@ -11,11 +12,11 @@ import (
 func Test_Create_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&user.User{}, &Basket{})
+	DB.AutoMigrate(&user.User{}, &basket.Basket{})
 	db.AddUser(DB)
 	defer db.DropDB(DB)
 
-	repo := NewBasketRepository(DB)
+	repo := basket.NewBasketRepository(DB)
 	err = repo.Create(1)
 	assert.Nil(t, err)
 }
@@ -23,13 +24,13 @@ func Test_Create_Should_Success(t *testing.T) {
 func Test_Update_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	err = DB.AutoMigrate(&user.User{}, &Basket{})
+	err = DB.AutoMigrate(&user.User{}, &basket.Basket{})
 	assert.Nil(t, err)
 	db.AddUser(DB)
 	defer db.DropDB(DB)
 
-	repo := NewBasketRepository(DB)
-	var basket = &Basket{
+	repo := basket.NewBasketRepository(DB)
+	var basket = &basket.Basket{
 		UserID:     1,
 		ProductIds: pq.Int64Array{1, 2, 3},
 		Amount:     pq.Int64Array{1, 2, 3},
@@ -42,12 +43,12 @@ func Test_Update_Should_Success(t *testing.T) {
 func Test_GetByUserId(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	err = DB.AutoMigrate(&user.User{}, &Basket{})
+	err = DB.AutoMigrate(&user.User{}, &basket.Basket{})
 	assert.Nil(t, err)
 	db.AddUser(DB)
 	defer db.DropDB(DB)
 
-	repo := NewBasketRepository(DB)
+	repo := basket.NewBasketRepository(DB)
 
 	err = repo.Create(1)
 	assert.Nil(t, err)

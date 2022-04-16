@@ -10,10 +10,16 @@ import (
 
 type OrderHandler struct {
 	orderServ OrderService
-	token     authentication.Token
+	token     authentication.TokenInterface
+}
+type IOrderHandler interface {
+	GetOrders(c *gin.Context)
+	CancelOrder(c *gin.Context)
 }
 
-func NewOrderHandler(orderServ OrderService, token authentication.Token) *OrderHandler {
+var _ IOrderHandler = &OrderHandler{}
+
+func NewOrderHandler(orderServ OrderService, token authentication.TokenInterface) IOrderHandler {
 	return &OrderHandler{orderServ, token}
 }
 
@@ -25,8 +31,7 @@ func (h *OrderHandler) GetOrders(c *gin.Context) {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
 		return
 	}
-	usrId := claim.UserID
-	orders, err := h.orderServ.List(usrId)
+	orders, err := h.orderServ.List(claim.UserID)
 	if err != nil {
 		zap.L().Error("Error while getting orders handler", zap.Error(err))
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

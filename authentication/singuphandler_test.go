@@ -1,7 +1,8 @@
-package authentication
+package authentication_test
 
 import (
 	"fmt"
+	"github.com/emreclsr/picusfinal/authentication"
 	"github.com/emreclsr/picusfinal/db"
 	"github.com/emreclsr/picusfinal/user"
 	"github.com/gin-gonic/gin"
@@ -27,7 +28,7 @@ func TestSingUp(t *testing.T) {
 	defer db.DropDB(DB)
 
 	app := gin.Default()
-	app.POST("/user", NewUsers(user.NewUserService(user.NewUserRepository(DB))).SignUp)
+	app.POST("/user", authentication.NewUsers(user.NewUserService(user.NewUserRepository(DB))).SignUp)
 
 	bodyReader := strings.NewReader(`{"email": "test@test.com", "password": "test"}`)
 	req := httptest.NewRequest("POST", "/user", bodyReader)

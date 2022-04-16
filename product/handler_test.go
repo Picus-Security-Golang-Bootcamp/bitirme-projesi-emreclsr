@@ -1,7 +1,6 @@
-package basket_test
+package product_test
 
 import (
-	"fmt"
 	"github.com/emreclsr/picusfinal/authentication"
 	"github.com/emreclsr/picusfinal/basket"
 	"github.com/emreclsr/picusfinal/category"
@@ -21,7 +20,7 @@ import (
 	"time"
 )
 
-func TestGetBasket(t *testing.T) {
+func TestCreateProduct(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
 	err = DB.AutoMigrate(&user.User{}, &category.Category{}, &product.Product{}, &basket.Basket{}, &order.Order{})
@@ -35,28 +34,26 @@ func TestGetBasket(t *testing.T) {
 	hands := handlers.NewHandlers(*servs, token)
 
 	app := gin.Default()
-	app.GET("/basket", hands.Basket.GetBasket)
-	assert.Nil(t, err)
+	app.POST("/product", hands.Product.CreateProduct)
 	cookie := &http.Cookie{
 		Name:    "TokenJWT",
 		Value:   db.Hastoken,
 		Expires: time.Now().Add(time.Hour * 5),
 	}
-	req := httptest.NewRequest("GET", "/basket", nil)
+	bodyReader := strings.NewReader(`{"Name": "test", "Price": 100, "Stock": 10, "Type": "testcategory"}`)
+	req := httptest.NewRequest("POST", "/product", bodyReader)
 	req.AddCookie(cookie)
 	rr := httptest.NewRecorder()
 	app.ServeHTTP(rr, req)
-	fmt.Println(rr, req)
-	assert.Equal(t, 200, rr.Code)
+	assert.Equal(t, 201, rr.Code)
 }
 
-func TestUpdateBasket(t *testing.T) {
+func TestGetProduct(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
 	err = DB.AutoMigrate(&user.User{}, &category.Category{}, &product.Product{}, &basket.Basket{}, &order.Order{})
 	assert.Nil(t, err)
 	defer db.DropDB(DB)
-	db.AddUser(DB)
 
 	token := authentication.NewToken()
 	repos := repositories.NewRepositories(DB)
@@ -67,26 +64,17 @@ func TestUpdateBasket(t *testing.T) {
 	repo := product.NewProductRepository(DB)
 	err = repo.Create(&testProduct)
 	assert.Nil(t, err)
+
 	app := gin.Default()
-	app.PUT("/basket", hands.Basket.UpdateBasket)
-	assert.Nil(t, err)
+	app.GET("/product", hands.Product.GetProducts)
 
-	cookie := &http.Cookie{
-		Name:    "TokenJWT",
-		Value:   db.Hastoken,
-		Expires: time.Now().Add(time.Hour * 5),
-	}
-	bodyReader := strings.NewReader(`{"user_id":1, "product_ids":[1], "amount" : [5]}`)
-	req := httptest.NewRequest("PUT", "/basket", bodyReader)
+	req := httptest.NewRequest("GET", "/product", nil)
 	rr := httptest.NewRecorder()
-	req.AddCookie(cookie)
 	app.ServeHTTP(rr, req)
-	fmt.Println(rr, req)
 	assert.Equal(t, 200, rr.Code)
-
 }
 
-func TestCreateAnOrder(t *testing.T) {
+func TestSearch(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
 	err = DB.AutoMigrate(&user.User{}, &category.Category{}, &product.Product{}, &basket.Basket{}, &order.Order{})
@@ -104,24 +92,78 @@ func TestCreateAnOrder(t *testing.T) {
 	err = repo.Create(&testProduct)
 	assert.Nil(t, err)
 
-	testBasket := basket.Basket{UserID: 1, ProductIds: []int64{1}, Amount: []int64{5}}
-	basketRepo := basket.NewBasketRepository(DB)
-	err = basketRepo.Update(&testBasket)
-	assert.Nil(t, err)
 	app := gin.Default()
-	app.POST("/basket", hands.Basket.CreateAnOrder)
-	assert.Nil(t, err)
+	app.GET("/product/:word", hands.Product.GetProducts)
 
+	req := httptest.NewRequest("GET", "/product/test", nil)
+	rr := httptest.NewRecorder()
+	app.ServeHTTP(rr, req)
+	assert.Equal(t, 200, rr.Code)
+
+}
+
+func TestDelete(t *testing.T) {
+	DB, err := db.DBTestConnect()
+	assert.Nil(t, err)
+	err = DB.AutoMigrate(&user.User{}, &category.Category{}, &product.Product{}, &basket.Basket{}, &order.Order{})
+	assert.Nil(t, err)
+	defer db.DropDB(DB)
+	db.AddUser(DB)
+
+	token := authentication.NewToken()
+	repos := repositories.NewRepositories(DB)
+	servs := services.NewServices(DB, *repos)
+	hands := handlers.NewHandlers(*servs, token)
+
+	testProduct := product.Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
+	repo := product.NewProductRepository(DB)
+	err = repo.Create(&testProduct)
+
+	app := gin.Default()
+	app.DELETE("/product/:id", hands.Product.DeleteProduct)
 	cookie := &http.Cookie{
 		Name:    "TokenJWT",
 		Value:   db.Hastoken,
 		Expires: time.Now().Add(time.Hour * 5),
 	}
 
-	req := httptest.NewRequest("POST", "/basket", nil)
-	rr := httptest.NewRecorder()
+	req := httptest.NewRequest("DELETE", "/product/1", nil)
 	req.AddCookie(cookie)
+	rr := httptest.NewRecorder()
 	app.ServeHTTP(rr, req)
-	fmt.Println(rr, req)
+	assert.Equal(t, 200, rr.Code)
+
+}
+
+func TestUpdateProduct(t *testing.T) {
+	DB, err := db.DBTestConnect()
+	assert.Nil(t, err)
+	err = DB.AutoMigrate(&user.User{}, &category.Category{}, &product.Product{}, &basket.Basket{}, &order.Order{})
+	assert.Nil(t, err)
+	defer db.DropDB(DB)
+	db.AddUser(DB)
+
+	token := authentication.NewToken()
+	repos := repositories.NewRepositories(DB)
+	servs := services.NewServices(DB, *repos)
+	hands := handlers.NewHandlers(*servs, token)
+
+	testProduct := product.Product{Name: "test", Price: 100, Stock: 10, Type: "testcategory"}
+	repo := product.NewProductRepository(DB)
+	err = repo.Create(&testProduct)
+
+	app := gin.Default()
+	app.PUT("/product/:id", hands.Product.UpdateProduct)
+	cookie := &http.Cookie{
+		Name:    "TokenJWT",
+		Value:   db.Hastoken,
+		Expires: time.Now().Add(time.Hour * 5),
+	}
+
+	bodyReader := strings.NewReader(`{"Name": "test", "Price": 500, "Stock": 10, "Type": "testcategory"}`)
+	req := httptest.NewRequest("PUT", "/product/1", bodyReader)
+	req.AddCookie(cookie)
+	rr := httptest.NewRecorder()
+	app.ServeHTTP(rr, req)
 	assert.Equal(t, 200, rr.Code)
 }

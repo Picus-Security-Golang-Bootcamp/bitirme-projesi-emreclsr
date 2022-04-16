@@ -12,11 +12,16 @@ type Authenticate struct {
 	userService user.UserService
 	token       TokenInterface
 }
+type IAuthenticate interface {
+	Login(c *gin.Context)
+}
 
 // NewAuthenticate creates a new Authenticate object (constructor)
-func NewAuthenticate(usrSrv user.UserService, tk TokenInterface) *Authenticate {
+func NewAuthenticate(usrSrv user.UserService, tk TokenInterface) IAuthenticate {
 	return &Authenticate{userService: usrSrv, token: tk}
 }
+
+var _ IAuthenticate = &Authenticate{}
 
 func (au *Authenticate) Login(c *gin.Context) {
 	zap.L().Info("Login triggered")

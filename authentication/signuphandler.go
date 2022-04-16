@@ -10,9 +10,14 @@ import (
 type Users struct {
 	userServ user.UserService
 }
+type IUsers interface {
+	SignUp(c *gin.Context)
+}
+
+var _ IUsers = &Users{}
 
 // NewUsers creates a new Users object (constructor)
-func NewUsers(usrService user.UserService) *Users {
+func NewUsers(usrService user.UserService) IUsers {
 
 	return &Users{userServ: usrService}
 }

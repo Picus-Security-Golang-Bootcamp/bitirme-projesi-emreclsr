@@ -24,7 +24,7 @@ type TokenInterface interface {
 // Compile time proof of interface implementation
 var _ TokenInterface = &Token{}
 
-func NewToken() *Token {
+func NewToken() TokenInterface {
 	return &Token{}
 }
 

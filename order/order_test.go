@@ -1,7 +1,9 @@
-package order
+package order_test
 
 import (
+	"github.com/emreclsr/picusfinal/order"
 	"github.com/go-playground/assert/v2"
+
 	"testing"
 	"time"
 )
@@ -20,7 +22,7 @@ func TestCheckTime(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			var order Order
+			var order order.Order
 			timeDuration := time.Duration(tt.day) * time.Hour * 24
 			order.CreatedAt = time.Now().Add(-timeDuration)
 			assert.Equal(t, tt.want, order.CheckTime())

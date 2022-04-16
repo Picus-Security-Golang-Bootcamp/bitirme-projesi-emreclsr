@@ -1,6 +1,7 @@
-package order
+package order_test
 
 import (
+	"github.com/emreclsr/picusfinal/order"
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/assert"
 	"testing"
@@ -9,32 +10,32 @@ import (
 type mockOrderRepo struct{}
 
 var (
-	Create func(order *Order) error
-	Get    func(id uint) (*Order, error)
-	List   func(userID uint) ([]Order, error)
-	Update func(order *Order) error
+	Create func(order *order.Order) error
+	Get    func(id uint) (*order.Order, error)
+	List   func(userID uint) ([]order.Order, error)
+	Update func(order *order.Order) error
 )
 
-func (m *mockOrderRepo) Create(order *Order) error {
+func (m *mockOrderRepo) Create(order *order.Order) error {
 	return Create(order)
 }
-func (m *mockOrderRepo) Get(id uint) (*Order, error) {
+func (m *mockOrderRepo) Get(id uint) (*order.Order, error) {
 	return Get(id)
 }
-func (m *mockOrderRepo) List(userID uint) ([]Order, error) {
+func (m *mockOrderRepo) List(userID uint) ([]order.Order, error) {
 	return List(userID)
 }
-func (m *mockOrderRepo) Update(order *Order) error {
+func (m *mockOrderRepo) Update(order *order.Order) error {
 	return Update(order)
 }
 
-var orderAppMock OrderService = &mockOrderRepo{}
+var orderAppMock order.OrderService = &mockOrderRepo{}
 
 func Test_OrderCreate(t *testing.T) {
-	Create = func(order *Order) error {
+	Create = func(order *order.Order) error {
 		return nil
 	}
-	var order = &Order{
+	var order = &order.Order{
 		UserID:     1,
 		TotalPrice: 50,
 		IsCanceled: false,
@@ -51,8 +52,8 @@ func Test_OrderGet(t *testing.T) {
 		ID uint `gorm:"primary_key"`
 	}
 
-	Get = func(id uint) (*Order, error) {
-		var order Order
+	Get = func(id uint) (*order.Order, error) {
+		var order order.Order
 		order.ID = 1
 		order.UserID = 1
 		order.TotalPrice = 50
@@ -65,8 +66,8 @@ func Test_OrderGet(t *testing.T) {
 }
 
 func Test_OrderList(t *testing.T) {
-	List = func(userID uint) ([]Order, error) {
-		return []Order{
+	List = func(userID uint) ([]order.Order, error) {
+		return []order.Order{
 			{
 				UserID:     1,
 				TotalPrice: 50,
@@ -83,10 +84,10 @@ func Test_OrderList(t *testing.T) {
 }
 
 func Test_OrderUpdate(t *testing.T) {
-	Update = func(order *Order) error {
+	Update = func(order *order.Order) error {
 		return nil
 	}
-	var order = &Order{
+	var order = &order.Order{
 		UserID:     1,
 		TotalPrice: 50,
 		IsCanceled: false,

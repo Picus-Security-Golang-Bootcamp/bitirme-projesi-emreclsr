@@ -12,13 +12,20 @@ import (
 
 type BasketHandler struct {
 	basketServ  BasketService
-	token       authentication.Token
+	token       authentication.TokenInterface
 	userServ    user.UserService
 	orderServ   order.OrderService
 	productServ product.ProductService
 }
+type IBasketHandler interface {
+	UpdateBasket(c *gin.Context)
+	GetBasket(c *gin.Context)
+	CreateAnOrder(c *gin.Context)
+}
 
-func NewBasketHandler(bs BasketService, token authentication.Token, userServ user.UserService, orderServ order.OrderService, productServ product.ProductService) *BasketHandler {
+var _ IBasketHandler = &BasketHandler{}
+
+func NewBasketHandler(bs BasketService, token authentication.TokenInterface, userServ user.UserService, orderServ order.OrderService, productServ product.ProductService) IBasketHandler {
 	return &BasketHandler{
 		basketServ:  bs,
 		token:       token,

@@ -1,7 +1,8 @@
-package basket
+package basket_test
 
 import (
 	"fmt"
+	"github.com/emreclsr/picusfinal/basket"
 	"github.com/emreclsr/picusfinal/order"
 	"github.com/emreclsr/picusfinal/product"
 	"github.com/joho/godotenv"
@@ -20,11 +21,11 @@ func init() {
 func TestCalculateTotalPrice(t *testing.T) {
 	tests := []struct {
 		name   string
-		Basket Basket
+		Basket basket.Basket
 		want   float64
 	}{
-		{name: "test1", Basket: Basket{}, want: 0},
-		{name: "test2", Basket: Basket{Amount: pq.Int64Array{1, 2}, Products: []product.Product{{Price: 10}, {Price: 20}}}, want: 50},
+		{name: "test1", Basket: basket.Basket{}, want: 0},
+		{name: "test2", Basket: basket.Basket{Amount: pq.Int64Array{1, 2}, Products: []product.Product{{Price: 10}, {Price: 20}}}, want: 50},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -38,11 +39,11 @@ func TestCalculateTotalPrice(t *testing.T) {
 func TestCalculateLineTotal(t *testing.T) {
 	tests := []struct {
 		name   string
-		Basket Basket
+		Basket basket.Basket
 		want   pq.Float64Array
 	}{
-		{name: "test1", Basket: Basket{}, want: pq.Float64Array(nil)},
-		{name: "test2", Basket: Basket{Amount: pq.Int64Array{1, 2}, Products: []product.Product{{Price: 10}, {Price: 20}}}, want: pq.Float64Array{10, 40}},
+		{name: "test1", Basket: basket.Basket{}, want: pq.Float64Array(nil)},
+		{name: "test2", Basket: basket.Basket{Amount: pq.Int64Array{1, 2}, Products: []product.Product{{Price: 10}, {Price: 20}}}, want: pq.Float64Array{10, 40}},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -55,12 +56,12 @@ func TestCalculateLineTotal(t *testing.T) {
 func TestToOrder(t *testing.T) {
 	tests := []struct {
 		name   string
-		basket Basket
+		basket basket.Basket
 		want   *order.Order
 	}{
-		{name: "test1", basket: Basket{}, want: &order.Order{}},
+		{name: "test1", basket: basket.Basket{}, want: &order.Order{}},
 		{name: "test2",
-			basket: Basket{Amount: pq.Int64Array{1, 2}, ProductIds: pq.Int64Array{1, 2}, Products: []product.Product{{Price: 10}, {Price: 20}}, TotalPrice: 50},
+			basket: basket.Basket{Amount: pq.Int64Array{1, 2}, ProductIds: pq.Int64Array{1, 2}, Products: []product.Product{{Price: 10}, {Price: 20}}, TotalPrice: 50},
 			want:   &order.Order{TotalPrice: 50, IsCanceled: false, Amount: pq.Int64Array{1, 2}, LineTotal: pq.Float64Array{10, 40}, ProductIds: pq.Int64Array{1, 2}, Products: []product.Product{{Price: 10}, {Price: 20}}}},
 	}
 	for _, tt := range tests {
@@ -76,14 +77,14 @@ func TestCheckItemsCountAndBasketQuantity(t *testing.T) {
 	tests :=
 		[]struct {
 			name   string
-			basket Basket
+			basket basket.Basket
 			want   bool
 		}{
-			{name: "test1", basket: Basket{}, want: true},
-			{name: "test2", basket: Basket{ProductIds: pq.Int64Array{1, 2}, Amount: pq.Int64Array{1, 2}}, want: true},
-			{name: "test3", basket: Basket{ProductIds: pq.Int64Array{1, 2, 3, 4, 5, 6}, Amount: pq.Int64Array{1, 1, 1, 1, 1, 1}}, want: false},
-			{name: "test4", basket: Basket{ProductIds: pq.Int64Array{1, 2, 3, 4}, Amount: pq.Int64Array{1, 1, 1, 99}}, want: false},
-			{name: "test5", basket: Basket{ProductIds: pq.Int64Array{1, 2, 3, 4, 5, 6}, Amount: pq.Int64Array{1, 1, 1, 1, 1, 99}}, want: false},
+			{name: "test1", basket: basket.Basket{}, want: true},
+			{name: "test2", basket: basket.Basket{ProductIds: pq.Int64Array{1, 2}, Amount: pq.Int64Array{1, 2}}, want: true},
+			{name: "test3", basket: basket.Basket{ProductIds: pq.Int64Array{1, 2, 3, 4, 5, 6}, Amount: pq.Int64Array{1, 1, 1, 1, 1, 1}}, want: false},
+			{name: "test4", basket: basket.Basket{ProductIds: pq.Int64Array{1, 2, 3, 4}, Amount: pq.Int64Array{1, 1, 1, 99}}, want: false},
+			{name: "test5", basket: basket.Basket{ProductIds: pq.Int64Array{1, 2, 3, 4, 5, 6}, Amount: pq.Int64Array{1, 1, 1, 1, 1, 99}}, want: false},
 		}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -14,11 +14,17 @@ import (
 
 type CategoryHandler struct {
 	catServ     CategoryService
-	token       authentication.Token
+	token       authentication.TokenInterface
 	productServ product.ProductService
 }
+type ICategoryHandler interface {
+	GetAllCategories(c *gin.Context)
+	CreateCategoryFromCSV(c *gin.Context)
+}
 
-func NewCategoryHandler(catServ CategoryService, token authentication.Token, productServ product.ProductService) *CategoryHandler {
+var _ ICategoryHandler = &CategoryHandler{}
+
+func NewCategoryHandler(catServ CategoryService, token authentication.TokenInterface, productServ product.ProductService) ICategoryHandler {
 	return &CategoryHandler{
 		catServ:     catServ,
 		token:       token,

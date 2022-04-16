@@ -1,6 +1,7 @@
-package category
+package category_test
 
 import (
+	"github.com/emreclsr/picusfinal/category"
 	"github.com/stretchr/testify/assert"
 	"testing"
 )
@@ -8,24 +9,24 @@ import (
 type mockCategoryRepo struct{}
 
 var (
-	Create func(category *Category) error
-	List   func() ([]Category, error)
+	Create func(category *category.Category) error
+	List   func() ([]category.Category, error)
 )
 
-func (m *mockCategoryRepo) Create(category *Category) error {
+func (m *mockCategoryRepo) Create(category *category.Category) error {
 	return Create(category)
 }
-func (m *mockCategoryRepo) List() ([]Category, error) {
+func (m *mockCategoryRepo) List() ([]category.Category, error) {
 	return List()
 }
 
-var categoryAppMock CategoryService = &mockCategoryRepo{}
+var categoryAppMock category.CategoryService = &mockCategoryRepo{}
 
 func Test_CreateCategory(t *testing.T) {
-	Create = func(category *Category) error {
+	Create = func(category *category.Category) error {
 		return nil
 	}
-	var category = &Category{
+	var category = &category.Category{
 		Type: "test",
 	}
 
@@ -34,8 +35,8 @@ func Test_CreateCategory(t *testing.T) {
 }
 
 func Test_ListCategory(t *testing.T) {
-	List = func() ([]Category, error) {
-		return []Category{}, nil
+	List = func() ([]category.Category, error) {
+		return []category.Category{}, nil
 	}
 
 	_, err := categoryAppMock.List()

@@ -1,11 +1,15 @@
-package category
+package category_test
 
 import (
 	"bytes"
 	"fmt"
 	"github.com/emreclsr/picusfinal/authentication"
+	"github.com/emreclsr/picusfinal/category"
 	"github.com/emreclsr/picusfinal/db"
+	"github.com/emreclsr/picusfinal/handlers"
 	"github.com/emreclsr/picusfinal/product"
+	"github.com/emreclsr/picusfinal/repositories"
+	"github.com/emreclsr/picusfinal/services"
 	"github.com/emreclsr/picusfinal/user"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -29,16 +33,19 @@ func init() {
 func TestGetAllCategories(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	err = DB.AutoMigrate(&Category{})
+	err = DB.AutoMigrate(&category.Category{})
 	assert.Nil(t, err)
 	defer db.DropDB(DB)
 	db.AddUser(DB)
 
-	handler := NewCategoryHandler(NewCategoryService(NewCategoryRepository(DB)), *authentication.NewToken(), product.NewProductService(product.NewProductRepository(DB)))
+	token := authentication.NewToken()
+	repos := repositories.NewRepositories(DB)
+	servs := services.NewServices(DB, *repos)
+	hands := handlers.NewHandlers(*servs, token)
 
 	app := gin.Default()
-	app.GET("/category", handler.GetAllCategories)
-	err = NewCategoryRepository(DB).Create(&Category{Type: "test", Product: []product.Product{}})
+	app.GET("/category", hands.Category.GetAllCategories)
+	err = category.NewCategoryRepository(DB).Create(&category.Category{Type: "test", Product: []product.Product{}})
 	assert.Nil(t, err)
 
 	req := httptest.NewRequest("GET", "/category", nil)
@@ -51,14 +58,18 @@ func TestGetAllCategories(t *testing.T) {
 func TestCreateCategoryFromCSV(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	err = DB.AutoMigrate(&user.User{}, &Category{}, &product.Product{})
+	err = DB.AutoMigrate(&user.User{}, &category.Category{}, &product.Product{})
 	assert.Nil(t, err)
 	defer db.DropDB(DB)
 	db.AddUser(DB)
 
-	handler := NewCategoryHandler(NewCategoryService(NewCategoryRepository(DB)), *authentication.NewToken(), product.NewProductService(product.NewProductRepository(DB)))
+	token := authentication.NewToken()
+	repos := repositories.NewRepositories(DB)
+	servs := services.NewServices(DB, *repos)
+	hands := handlers.NewHandlers(*servs, token)
+
 	app := gin.Default()
-	app.POST("/category", handler.CreateCategoryFromCSV)
+	app.POST("/category", hands.Category.CreateCategoryFromCSV)
 	w := httptest.NewRecorder()
 
 	cookie := &http.Cookie{

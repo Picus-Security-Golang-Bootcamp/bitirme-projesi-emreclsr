@@ -1,8 +1,9 @@
-package order
+package order_test
 
 import (
 	"fmt"
 	"github.com/emreclsr/picusfinal/db"
+	"github.com/emreclsr/picusfinal/order"
 	"github.com/emreclsr/picusfinal/user"
 	"github.com/joho/godotenv"
 	"github.com/stretchr/testify/assert"
@@ -19,37 +20,37 @@ func init() {
 func Test_Create_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&user.User{}, &Order{})
+	DB.AutoMigrate(&user.User{}, &order.Order{})
 	db.AddUser(DB)
 	defer db.DropDB(DB)
-	test_order := Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
-	repo := NewOrderRepository(DB)
-	err = repo.Create(&test_order)
+	testOrder := order.Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
+	repo := order.NewOrderRepository(DB)
+	err = repo.Create(&testOrder)
 	assert.Nil(t, err)
 }
 
 func Test_Update_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&user.User{}, &Order{})
+	DB.AutoMigrate(&user.User{}, &order.Order{})
 	db.AddUser(DB)
 	defer db.DropDB(DB)
-	test_order := Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
-	repo := NewOrderRepository(DB)
-	errCreate := repo.Create(&test_order)
+	testOrder := order.Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
+	repo := order.NewOrderRepository(DB)
+	errCreate := repo.Create(&testOrder)
 	assert.Nil(t, errCreate)
-	err = repo.Update(&test_order)
+	err = repo.Update(&testOrder)
 	assert.Nil(t, err)
 }
 
 func Test_Get_By_OrderId_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&user.User{}, &Order{})
+	DB.AutoMigrate(&user.User{}, &order.Order{})
 	db.AddUser(DB)
 	defer db.DropDB(DB)
-	test_order := Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
-	repo := NewOrderRepository(DB)
+	test_order := order.Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
+	repo := order.NewOrderRepository(DB)
 	err = repo.Create(&test_order)
 	assert.Nil(t, err)
 
@@ -60,15 +61,15 @@ func Test_Get_By_OrderId_Should_Success(t *testing.T) {
 func Test_List_Should_Success(t *testing.T) {
 	DB, err := db.DBTestConnect()
 	assert.Nil(t, err)
-	DB.AutoMigrate(&user.User{}, &Order{})
+	DB.AutoMigrate(&user.User{}, &order.Order{})
 	db.AddUser(DB)
 	defer db.DropDB(DB)
 	db.AddUser(DB)
-	test_order1 := Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
-	test_order2 := Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
-	repo := NewOrderRepository(DB)
-	err = repo.Create(&test_order1)
-	err2 := repo.Create(&test_order2)
+	testOrder1 := order.Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
+	testOrder2 := order.Order{UserID: 1, TotalPrice: 50, IsCanceled: false}
+	repo := order.NewOrderRepository(DB)
+	err = repo.Create(&testOrder1)
+	err2 := repo.Create(&testOrder2)
 	assert.Nil(t, err)
 	assert.Nil(t, err2)
 

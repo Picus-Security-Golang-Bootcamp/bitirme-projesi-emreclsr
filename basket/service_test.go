@@ -1,6 +1,7 @@
-package basket
+package basket_test
 
 import (
+	"github.com/emreclsr/picusfinal/basket"
 	"github.com/lib/pq"
 	"github.com/stretchr/testify/assert"
 	"testing"
@@ -10,21 +11,21 @@ type mockBasketRepo struct{}
 
 var (
 	Create      func(userId uint) error
-	Update      func(basket *Basket) error
-	GetByUserId func(userId uint) (*Basket, error)
+	Update      func(basket *basket.Basket) error
+	GetByUserId func(userId uint) (*basket.Basket, error)
 )
 
 func (m *mockBasketRepo) CreateBasket(userId uint) error {
 	return Create(userId)
 }
-func (m *mockBasketRepo) UpdateBasket(basket *Basket) error {
+func (m *mockBasketRepo) UpdateBasket(basket *basket.Basket) error {
 	return Update(basket)
 }
-func (m *mockBasketRepo) GetByUserId(userId uint) (*Basket, error) {
+func (m *mockBasketRepo) GetByUserId(userId uint) (*basket.Basket, error) {
 	return GetByUserId(userId)
 }
 
-var basketAppMock BasketService = &mockBasketRepo{}
+var basketAppMock basket.BasketService = &mockBasketRepo{}
 
 func Test_CreateBasket(t *testing.T) {
 	Create = func(userId uint) error {
@@ -35,10 +36,10 @@ func Test_CreateBasket(t *testing.T) {
 }
 
 func Test_UpdateBasket(t *testing.T) {
-	Update = func(basket *Basket) error {
+	Update = func(basket *basket.Basket) error {
 		return nil
 	}
-	var basket = &Basket{
+	var basket = &basket.Basket{
 		UserID:     1,
 		ProductIds: pq.Int64Array{1, 2, 3},
 		Amount:     pq.Int64Array{1, 2, 3},
@@ -49,8 +50,8 @@ func Test_UpdateBasket(t *testing.T) {
 }
 
 func Test_GetBasketByUserId(t *testing.T) {
-	GetByUserId = func(userId uint) (*Basket, error) {
-		return &Basket{
+	GetByUserId = func(userId uint) (*basket.Basket, error) {
+		return &basket.Basket{
 			UserID:     1,
 			ProductIds: pq.Int64Array{1, 2, 3},
 			Amount:     pq.Int64Array{1, 2, 3},

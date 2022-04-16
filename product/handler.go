@@ -11,10 +11,19 @@ import (
 
 type ProductHandler struct {
 	ProductService ProductService
-	token          authentication.Token
+	token          authentication.TokenInterface
+}
+type IProductHandler interface {
+	CreateProduct(c *gin.Context)
+	GetProducts(c *gin.Context)
+	Search(c *gin.Context)
+	DeleteProduct(c *gin.Context)
+	UpdateProduct(c *gin.Context)
 }
 
-func NewProductHandler(service ProductService, token authentication.Token) *ProductHandler {
+var _ IProductHandler = &ProductHandler{}
+
+func NewProductHandler(service ProductService, token authentication.TokenInterface) *ProductHandler {
 	return &ProductHandler{
 		ProductService: service,
 		token:          token,
@@ -45,7 +54,7 @@ func (h *ProductHandler) CreateProduct(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	c.JSON(http.StatusOK, product)
+	c.JSON(http.StatusCreated, product)
 }
 
 //func (h *ProductHandler) GetProducts(c *gin.Context) {

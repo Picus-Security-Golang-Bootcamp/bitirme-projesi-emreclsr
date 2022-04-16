@@ -41,7 +41,7 @@ func main() {
 	token := authentication.NewToken()
 	repos := repositories.NewRepositories(DB)
 	servs := services.NewServices(DB, *repos)
-	hands := handlers.NewHandlers(*servs, *token)
+	hands := handlers.NewHandlers(*servs, token)
 
 	r := gin.Default()
 	r.POST("/user", hands.User.SignUp)                        // 1
