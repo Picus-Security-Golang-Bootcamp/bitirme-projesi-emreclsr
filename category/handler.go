@@ -5,6 +5,7 @@ import (
 	"github.com/emreclsr/picusfinal/authentication"
 	"github.com/emreclsr/picusfinal/product"
 	"github.com/gin-gonic/gin"
+	"github.com/go-playground/validator/v10"
 	set "github.com/mpvl/unique"
 	"go.uber.org/zap"
 	"net/http"
@@ -23,6 +24,7 @@ type ICategoryHandler interface {
 }
 
 var _ ICategoryHandler = &CategoryHandler{}
+var validate *validator.Validate
 
 func NewCategoryHandler(catServ CategoryService, token authentication.TokenInterface, productServ product.ProductService) ICategoryHandler {
 	return &CategoryHandler{
@@ -32,6 +34,15 @@ func NewCategoryHandler(catServ CategoryService, token authentication.TokenInter
 	}
 }
 
+// GetAllCategories godoc
+// @Summary Get all categories
+// @Description Get all categories
+// @Tags Category
+// @Accept  json
+// @Produce  json
+// @Success 200 {object} Category
+// @Failure 500 "Server error"
+// @Router /category [get]
 func (h *CategoryHandler) GetAllCategories(c *gin.Context) {
 	zap.L().Info("GetAllCategories handler triggered")
 	categories, err := h.catServ.List()
@@ -43,6 +54,19 @@ func (h *CategoryHandler) GetAllCategories(c *gin.Context) {
 	c.JSON(http.StatusOK, categories)
 }
 
+// CreateCategoryFromCSV godoc
+// @Summary Create categories from csv
+// @Description Create categories from csv
+// @Tags Category
+// @Accept  json
+// @Produce  json
+// @Param csv formData file true "csv"
+// @Security TokenJWT
+// @Success 200 "Categories created successfully"
+// @Failure 400 "Bad request"
+// @Failure 401 "Unauthorized"
+// @Failure 500 "Server error"
+// @Router /category [post]
 func (h *CategoryHandler) CreateCategoryFromCSV(c *gin.Context) {
 	zap.L().Info("CreateCategoryFromCSV handler triggered")
 	claim, err := h.token.VerifyToken(c)
@@ -88,7 +112,13 @@ func (h *CategoryHandler) CreateCategoryFromCSV(c *gin.Context) {
 			}
 			product.Stock = ps
 			product.Type = each[4]
-
+			validate = validator.New()
+			err = validate.Struct(&product)
+			if err != nil {
+				zap.L().Error("Error in json which sended data to create product handler", zap.Error(err))
+				c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+				return
+			}
 			if err := h.productServ.Create(&product); err != nil {
 				zap.L().Error("Error while creating product (handler)", zap.Error(err))
 				c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
@@ -103,6 +133,13 @@ func (h *CategoryHandler) CreateCategoryFromCSV(c *gin.Context) {
 	for _, i := range catList {
 		category := Category{
 			Type: i,
+		}
+		validate = validator.New()
+		err = validate.Struct(&category)
+		if err != nil {
+			zap.L().Error("Error in json which sended data to create product handler", zap.Error(err))
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
 		}
 		if err := h.catServ.Create(&category); err != nil {
 			zap.L().Error("Error while creating category (handler)", zap.Error(err))

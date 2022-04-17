@@ -5,6 +5,7 @@ import (
 	"github.com/emreclsr/picusfinal/basket"
 	"github.com/emreclsr/picusfinal/category"
 	"github.com/emreclsr/picusfinal/db"
+	"github.com/emreclsr/picusfinal/docs"
 	"github.com/emreclsr/picusfinal/handlers"
 	"github.com/emreclsr/picusfinal/logger"
 	"github.com/emreclsr/picusfinal/order"
@@ -14,10 +15,21 @@ import (
 	"github.com/emreclsr/picusfinal/user"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"go.uber.org/zap"
 	"log"
 )
 
+// @title Picus Final Project
+// @version 1.0
+// @description This is a sample of e-commerce API.
+// @contact.name Emre Çalışır
+// host: localhost:8000
+// @schemes http
+//@securityDefinitions.apikey TokenJWT
+//@in header
+//@name TokenJWT
 func main() {
 	er := godotenv.Load()
 	if er != nil {
@@ -37,6 +49,8 @@ func main() {
 	if err != nil {
 		zap.L().Fatal("Error auto migrating database", zap.Error(err))
 	}
+
+	docs.SwaggerInfo.BasePath = "/"
 
 	token := authentication.NewToken()
 	repos := repositories.NewRepositories(DB)
@@ -58,6 +72,8 @@ func main() {
 	r.GET("/product/:word", hands.Product.Search)             // 13
 	r.DELETE("/product/:id", hands.Product.DeleteProduct)     // 14
 	r.PUT("/product/:id", hands.Product.UpdateProduct)        // 15
+
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
 
 	log.Fatal(r.Run(":8000"))
 

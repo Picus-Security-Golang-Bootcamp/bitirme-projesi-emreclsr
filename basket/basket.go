@@ -15,11 +15,11 @@ import (
 type Basket struct {
 	gorm.Model
 	User       user.User         `json:"user"`
-	UserID     uint              `json:"user_id"`
-	ProductIds pq.Int64Array     `json:"product_ids" gorm:"type:integer[]"`
+	UserID     uint              `json:"user_id" example:"1"`
+	ProductIds pq.Int64Array     `json:"product_ids" gorm:"type:integer[]" example:"1,2,3"`
 	Products   []product.Product `json:"products" gorm:"-"`
-	Amount     pq.Int64Array     `json:"amount" gorm:"type:integer[]"`
-	TotalPrice float64           `json:"total_price"`
+	Amount     pq.Int64Array     `json:"amount" gorm:"type:integer[]" example:"1,2,3"`
+	TotalPrice float64           `json:"total_price" example:"999.99"`
 }
 
 func (b *Basket) CalculateTotalPrice() {

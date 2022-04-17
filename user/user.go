@@ -8,13 +8,13 @@ import (
 
 type User struct {
 	gorm.Model
-	FullName string `json:"full_name"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
-	Phone    string `json:"phone"`
-	Address  string `json:"address"`
-	Role     string `json:"role"`
-	Status   string `json:"status"`
+	FullName string `json:"full_name" example:"Test User"`
+	Email    string `json:"email" example:"test@tst.com" validate:"required,email"`
+	Password string `json:"password" example:"password" validate:"required"`
+	Phone    string `json:"phone" example:"+05341234567"`
+	Address  string `json:"address" example:"Test Address"`
+	Role     string `json:"role" example:"admin" `
+	Status   string `json:"status" example:"active"`
 }
 
 // BeforeCreate will be hashed password before create User

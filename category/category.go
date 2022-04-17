@@ -7,6 +7,6 @@ import (
 
 type Category struct {
 	gorm.Model
-	Type    string            `json:"type"`
-	Product []product.Product `json:"product" gorm:"many2many:category_product;association_foreignkey:ID;foreignkey:ID"`
+	Type    string            `json:"type" example:"test type" validate:"required"`
+	Product []product.Product `json:"product" gorm:"many2many:category_products;association_foreignkey:ID;foreignkey:ID"`
 }

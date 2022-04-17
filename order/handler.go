@@ -23,6 +23,17 @@ func NewOrderHandler(orderServ OrderService, token authentication.TokenInterface
 	return &OrderHandler{orderServ, token}
 }
 
+// GetOrders godoc
+// @Summary Get all orders
+// @Description Get all orders
+// @Tags Order
+// @Accept  json
+// @Produce  json
+// @Security TokenJWT
+// @Success 200 {object} Order
+// @Failure 401 "Unauthorized"
+// @Failure 500 "Server error"
+// @Router /order [get]
 func (h *OrderHandler) GetOrders(c *gin.Context) {
 	zap.L().Info("GetOrders handler triggered")
 	claim, err := h.token.VerifyToken(c)
@@ -40,6 +51,19 @@ func (h *OrderHandler) GetOrders(c *gin.Context) {
 	c.JSON(http.StatusOK, orders)
 }
 
+// CancelOrder godoc
+// @Summary Cancel order
+// @Description Cancel order
+// @Tags Order
+// @Accept  json
+// @Produce  json
+// @Param id path int true "Order ID"
+// @Security TokenJWT
+// @Success 200 "Order canceled"
+// @Failure 400 "Bad request"
+// @Failure 401 "Unauthorized"
+// @Failure 500 "Server error"
+// @Router /order/{id} [put]
 func (h *OrderHandler) CancelOrder(c *gin.Context) {
 	zap.L().Info("CancelOrder handler triggered")
 	claim, err := h.token.VerifyToken(c)

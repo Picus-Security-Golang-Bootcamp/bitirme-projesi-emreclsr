@@ -35,6 +35,20 @@ func NewBasketHandler(bs BasketService, token authentication.TokenInterface, use
 	}
 }
 
+// UpdateBasket godoc
+// @Summary Update basket
+// @Description Update basket
+// @Tags Basket
+// @Accept  json
+// @Produce  json
+// @Param body body Basket true "Basket"
+// @Security TokenJWT
+// @Success 200 "item added successfully"
+// @Failure 401 "You are not authorized for this action"
+// @Failure 422 "Validation error"
+// @Failure 422 "Not enough stock from product"
+// @Failure 500 "Server error"
+// @Router /basket [put]
 func (h *BasketHandler) UpdateBasket(c *gin.Context) {
 	zap.L().Info("Update basket handler triggered")
 	claims, err := h.token.VerifyToken(c)
@@ -93,6 +107,18 @@ func (h *BasketHandler) UpdateBasket(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "item added successfully"})
 }
 
+// GetBasket godoc
+// @Summary Get basket
+// @Description Get basket
+// @Tags Basket
+// @Accept  json
+// @Produce  json
+// @Security TokenJWT
+// @Success 200 {object} Basket
+// @Success 200 "basket is empty"
+// @Failure 401 "You are not authorized for this action"
+// @Failure 500 "Server error"
+// @Router /basket [get]
 func (h *BasketHandler) GetBasket(c *gin.Context) {
 	zap.L().Info("Get basket handler triggered")
 	claims, err := h.token.VerifyToken(c)
@@ -133,6 +159,18 @@ func (h *BasketHandler) GetBasket(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"basket": basket})
 }
 
+// CreateAnOrder godoc
+// @Summary Create an order
+// @Description Create an order
+// @Tags Basket
+// @Accept  json
+// @Produce  json
+// @Security TokenJWT
+// @Success 200 {object} order.Order
+// @Failure 400 "Bad request"
+// @Failure 401 "You are not authorized for this action"
+// @Failure 500 "Server error"
+// @Router /basket [post]
 func (h *BasketHandler) CreateAnOrder(c *gin.Context) {
 	zap.L().Info("Create order handler triggered")
 	claims, err := h.token.VerifyToken(c)

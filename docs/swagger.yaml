@@ -1,0 +1,598 @@
+definitions:
+  basket.Basket:
+    properties:
+      amount:
+        example:
+        - 1
+        - 2
+        - 3
+        items:
+          type: integer
+        type: array
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      product_ids:
+        example:
+        - 1
+        - 2
+        - 3
+        items:
+          type: integer
+        type: array
+      products:
+        items:
+          $ref: '#/definitions/product.Product'
+        type: array
+      total_price:
+        example: 999.99
+        type: number
+      updatedAt:
+        type: string
+      user:
+        $ref: '#/definitions/user.User'
+      user_id:
+        example: 1
+        type: integer
+    type: object
+  category.Category:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      product:
+        items:
+          $ref: '#/definitions/product.Product'
+        type: array
+      type:
+        example: test type
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - type
+    type: object
+  gorm.DeletedAt:
+    properties:
+      time:
+        type: string
+      valid:
+        description: Valid is true if Time is not NULL
+        type: boolean
+    type: object
+  order.Order:
+    properties:
+      amount:
+        example:
+        - 1
+        - 2
+        - 3
+        items:
+          type: integer
+        type: array
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      is_canceled:
+        example: false
+        type: boolean
+      line_total:
+        example:
+        - 1.99
+        - 2.99
+        - 3.99
+        items:
+          type: number
+        type: array
+      product_ids:
+        example:
+        - 1
+        - 2
+        - 3
+        items:
+          type: integer
+        type: array
+      products:
+        items:
+          $ref: '#/definitions/product.Product'
+        type: array
+      total_price:
+        example: 999.99
+        type: number
+      updatedAt:
+        type: string
+      user:
+        $ref: '#/definitions/user.User'
+      user_id:
+        example: 1
+        type: integer
+    type: object
+  pagination.Pagination:
+    properties:
+      first_page:
+        type: string
+      from_row:
+        type: integer
+      last_page:
+        type: string
+      limit:
+        type: integer
+      next_page:
+        type: string
+      page:
+        type: integer
+      previous_page:
+        type: string
+      rows: {}
+      searchs:
+        items:
+          $ref: '#/definitions/pagination.Search'
+        type: array
+      sort:
+        type: string
+      to_row:
+        type: integer
+      total_pages:
+        type: integer
+      total_rows:
+        type: integer
+      url_path:
+        type: string
+    type: object
+  pagination.Search:
+    properties:
+      action:
+        type: string
+      column:
+        type: string
+      query:
+        type: string
+    type: object
+  product.Product:
+    properties:
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      id:
+        type: integer
+      name:
+        example: product name
+        type: string
+      price:
+        example: 99.99
+        type: number
+      stock:
+        example: 10
+        type: integer
+      type:
+        example: category
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - name
+    - price
+    - stock
+    - type
+    type: object
+  user.User:
+    properties:
+      address:
+        example: Test Address
+        type: string
+      createdAt:
+        type: string
+      deletedAt:
+        $ref: '#/definitions/gorm.DeletedAt'
+      email:
+        example: test@tst.com
+        type: string
+      full_name:
+        example: Test User
+        type: string
+      id:
+        type: integer
+      password:
+        example: password
+        type: string
+      phone:
+        example: "+05341234567"
+        type: string
+      role:
+        example: admin
+        type: string
+      status:
+        example: active
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+info:
+  contact:
+    name: Emre Çalışır
+  description: This is a sample of e-commerce API.
+  title: Picus Final Project
+  version: "1.0"
+paths:
+  /basket:
+    get:
+      consumes:
+      - application/json
+      description: Get basket
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: basket is empty
+        "401":
+          description: You are not authorized for this action
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Get basket
+      tags:
+      - Basket
+    post:
+      consumes:
+      - application/json
+      description: Create an order
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/order.Order'
+        "400":
+          description: Bad request
+        "401":
+          description: You are not authorized for this action
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Create an order
+      tags:
+      - Basket
+    put:
+      consumes:
+      - application/json
+      description: Update basket
+      parameters:
+      - description: Basket
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/basket.Basket'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: item added successfully
+        "401":
+          description: You are not authorized for this action
+        "422":
+          description: Not enough stock from product
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Update basket
+      tags:
+      - Basket
+  /category:
+    get:
+      consumes:
+      - application/json
+      description: Get all categories
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/category.Category'
+        "500":
+          description: Server error
+      summary: Get all categories
+      tags:
+      - Category
+    post:
+      consumes:
+      - application/json
+      description: Create categories from csv
+      parameters:
+      - description: csv
+        in: formData
+        name: csv
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Categories created successfully
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Create categories from csv
+      tags:
+      - Category
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: Login
+      parameters:
+      - description: User
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/user.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Logged in successfully
+        "401":
+          description: Username or password is incorrect
+        "422":
+          description: Invalid JSON provided for login
+        "500":
+          description: Error getting user while logging in
+      summary: Login
+      tags:
+      - Authentication
+  /order:
+    get:
+      consumes:
+      - application/json
+      description: Get all orders
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/order.Order'
+        "401":
+          description: Unauthorized
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Get all orders
+      tags:
+      - Order
+  /order/{id}:
+    put:
+      consumes:
+      - application/json
+      description: Cancel order
+      parameters:
+      - description: Order ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Order canceled
+        "400":
+          description: Bad request
+        "401":
+          description: Unauthorized
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Cancel order
+      tags:
+      - Order
+  /product:
+    get:
+      consumes:
+      - application/json
+      description: Get products with pagination
+      parameters:
+      - description: limit
+        in: query
+        name: limit
+        required: true
+        type: integer
+      - description: page
+        in: query
+        name: page
+        required: true
+        type: integer
+      - description: sort
+        in: query
+        name: sort
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pagination.Pagination'
+        "500":
+          description: Server error
+      summary: Get products with pagination
+      tags:
+      - Product
+    post:
+      consumes:
+      - application/json
+      description: Create a new product
+      parameters:
+      - description: Product
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/product.Product'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/product.Product'
+        "400":
+          description: Bad request
+        "401":
+          description: You are not authorized to perform this action
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Create a new product
+      tags:
+      - Product
+  /product/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete products
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product deleted
+        "400":
+          description: Bad request
+        "401":
+          description: You are not authorized to perform this action
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Delete products
+      tags:
+      - Product
+    put:
+      consumes:
+      - application/json
+      description: Update products
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Product
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/product.Product'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.Product'
+        "400":
+          description: Bad request
+        "401":
+          description: You are not authorized to perform this action
+        "422":
+          description: Unprocessable Entity
+        "500":
+          description: Server error
+      security:
+      - TokenJWT: []
+      summary: Update products
+      tags:
+      - Product
+  /product/{word}:
+    get:
+      consumes:
+      - application/json
+      description: Search products
+      parameters:
+      - description: Search word
+        in: path
+        name: word
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/product.Product'
+        "500":
+          description: Server error
+      summary: Search products
+      tags:
+      - Product
+  /user:
+    post:
+      consumes:
+      - application/json
+      description: SignUp
+      parameters:
+      - description: User
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/user.User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/user.User'
+        "409":
+          description: User already exists
+        "422":
+          description: Invalid JSON provided for signup
+        "500":
+          description: Server error
+      summary: SignUp
+      tags:
+      - NewUser
+schemes:
+- http
+securityDefinitions:
+  TokenJWT:
+    in: header
+    name: TokenJWT
+    type: apiKey
+swagger: "2.0"
