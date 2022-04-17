@@ -1,7 +1,7 @@
 # Picus Final Project
 
 ## Introduction
-This project is a simple e-commerce API that allows users to create new accounts, log-in, search products and fill 
+This project is a sample e-commerce API that allows users to create new accounts, log-in, search products and fill 
 their basket, create an order and cancel their orders. Admin can create new categories and products unlike the users. 
 
 This project has been developed for Patika - Picus Security Go Bootcamp. 15 different tasks were completed and 
