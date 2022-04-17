@@ -1,7 +1,7 @@
 # Picus Final Project
 
 ## Introduction
-This project is a simple e-commerce API that allows users to create new accounts, log-in, search products and fill 
+This project is a sample e-commerce API that allows users to create new accounts, log-in, search products and fill 
 their basket, create an order and cancel their orders. Admin can create new categories and products unlike the users. 
 
 This project has been developed for Patika - Picus Security Go Bootcamp. 15 different tasks were completed and 
@@ -18,7 +18,7 @@ This project has been developed for Patika - Picus Security Go Bootcamp. 15 diff
 
 ## Database Schema
 
-<img src="https://cdn.discordapp.com/attachments/519918508998656028/965279531348930590/unknown.png" alt="Logo" width="50%">
+<img src="https://cdn.discordapp.com/attachments/519918508998656028/965279531348930590/unknown.png" alt="Logo" width="100%">
 
 ## Usage
 Code file runs on port 8000. After running the code, you can easily check each endpoint thanks to [swagger](https://swagger.io/) using the link below::
