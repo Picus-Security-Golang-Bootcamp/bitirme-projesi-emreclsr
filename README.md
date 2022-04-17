@@ -18,7 +18,7 @@ This project has been developed for Patika - Picus Security Go Bootcamp. 15 diff
 
 ## Database Schema
 
-<img src="https://cdn.discordapp.com/attachments/519918508998656028/965279531348930590/unknown.png" alt="Logo" width="50%">
+<img src="https://cdn.discordapp.com/attachments/519918508998656028/965279531348930590/unknown.png" alt="Logo" width="100%">
 
 ## Usage
 Code file runs on port 8000. After running the code, you can easily check each endpoint thanks to [swagger](https://swagger.io/) using the link below::
