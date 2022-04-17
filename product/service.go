@@ -15,7 +15,6 @@ type ProductService interface {
 	Search(word string) ([]Product, error)
 	Delete(id uint) error
 	Update(product *Product) error
-	//List() ([]Product, error)
 	List(pg *pagination.Pagination) (*pagination.Pagination, error)
 	Get(id uint) (*Product, error)
 }
@@ -66,22 +65,6 @@ func (s *productService) Update(product *Product) error {
 	}
 	return nil
 }
-
-//func (s *productService) List() ([]Product, error) {
-//	zap.L().Info("List product service triggered")
-//	products, err := s.repo.List()
-//	if err != nil {
-//		zap.L().Error("Error listing product (service)", zap.Error(err))
-//		return nil, err
-//	}
-//	return products, nil
-//}
-
-//type Response struct {
-//	Success bool        `json:"success"`
-//	Message string      `json:"message"`
-//	Data    interface{} `json:"data"`
-//}
 
 func (s *productService) List(pg *pagination.Pagination) (*pagination.Pagination, error) {
 	operationResult, err := s.repo.List(pg)

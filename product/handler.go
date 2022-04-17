@@ -79,24 +79,6 @@ func (h *ProductHandler) CreateProduct(c *gin.Context) {
 	c.JSON(http.StatusCreated, product)
 }
 
-//func (h *ProductHandler) GetProducts(c *gin.Context) {
-//	zap.L().Info("GetProducts handler triggered")
-//	_, err := h.token.VerifyToken(c)
-//	if err != nil {
-//		zap.L().Error("Token verification failed in get products handler", zap.Error(err))
-//		c.JSON(http.StatusUnauthorized, gin.H{"error": err.Error()})
-//		return
-//	}
-//	products, err := h.ProductService.List()
-//	if err != nil {
-//		zap.L().Error("Error in getting products (handler)", zap.Error(err))
-//		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-//		return
-//	}
-//
-//	c.JSON(http.StatusOK, products)
-//}
-
 // GetProducts godoc
 // @Summary Get products with pagination
 // @Description Get products with pagination

@@ -12,7 +12,6 @@ type ProductRepository interface {
 	Search(word string) ([]Product, error)
 	Delete(id uint) error
 	Update(product *Product) error
-	//List() ([]Product, error)
 	List(pg *pagination.Pagination) (*pagination.Pagination, error)
 	Get(id uint) (*Product, error)
 }
@@ -68,22 +67,6 @@ func (r *repository) Update(product *Product) error {
 	}
 	return nil
 }
-
-//func (r *repository) List() ([]Product, error) {
-//	zap.L().Info("Listing products")
-//	var products []Product
-//	err := r.db.Find(&products).Error
-//	if err != nil {
-//		zap.L().Error("Listing products error (repository)", zap.Error(err))
-//		return nil, err
-//	}
-//	return products, nil
-//}
-
-//type RepositoryResult struct {
-//	Result interface{}
-//	Error  error
-//}
 
 func (r *repository) List(pg *pagination.Pagination) (*pagination.Pagination, error) {
 	zap.L().Info("Listing products")

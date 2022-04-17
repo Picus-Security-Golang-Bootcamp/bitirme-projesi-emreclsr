@@ -37,8 +37,6 @@ func main() {
 	}
 
 	// Initialize global logger
-	//logger.NewLogger()
-	//defer logger.Close()
 	logger.InitLogger()
 
 	DB, err := db.Connect()
